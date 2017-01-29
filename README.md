@@ -1,2 +1,2 @@
 # unsplash-python
-A Python wrapper for the [Unsplash API](https://unsplash.com/developers).
+A Python client for the [Unsplash API](https://unsplash.com/developers).
