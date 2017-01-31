@@ -1,2 +1,2 @@
 # unsplash-python
-A Python client for the [Unsplash API](https://unsplash.com/developers).
+A unofficial Python client for the [Unsplash API](https://unsplash.com/developers).
