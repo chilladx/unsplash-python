@@ -5,9 +5,10 @@
     Author: Michael Hacker <mh@superchic.at>
 """
 
-from .src.photos import Photos
 from .src.rest   import Rest
 from .src.users  import Users
+from .src.photos import Photos
+
 
 class Unsplash(object):
     def __init__(self, settings):

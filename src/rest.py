@@ -12,6 +12,7 @@ from urllib.request import urlopen
 
 logger = logging.getLogger('unsplash-python')
 
+
 class Rest(object):
     def __init__(self, application_id):
         self._application_id = application_id
