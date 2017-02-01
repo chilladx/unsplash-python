@@ -6,8 +6,7 @@ A unofficial Python client for the [Unsplash API](https://unsplash.com/developer
 ### Creating an instance
 To create an instance, simply provide an _Object_ with your `application_id`, `secret` and `callback_url`.
 
-.. code-block:: python
-
+```python
     from unsplash import Unsplash
 
     unsplash = Unsplash({
@@ -15,7 +14,7 @@ To create an instance, simply provide an _Object_ with your `application_id`, `s
         'secret'         : '{APP_SECRET}',
         'callback_url'   : '{CALLBACK_URL}'
     })
-
+```
 
 ===
 
