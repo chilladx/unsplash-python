@@ -301,7 +301,7 @@ photo_stats = unsplash.photos().get_photo_stats(
 ```
 ---
 
-### photos().get_random_photo(width, height, query, username, featured, category)
+### photos().get_random_photo(width, height, query, username, featured, collections)
 Retrieve a single random photo, given optional filters.
 
 __Arguments__
