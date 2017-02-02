@@ -98,14 +98,14 @@ __Arguments__
 __Example__
 ```python
 unsplash.current_user.update_profile({
-    'username'          : 'john_doe',
-    'first_name'        : 'John',
-    'last_name'         : 'Doe',
-    'email'             : 'john.doe@unkn.own',
-    'url'               : 'https://www.superbox.one',
-    'location'          : 'Unknown',
-    'bio'               : '',
-    'instagram_username': 'john_doe'
+    'username'           : 'john_doe',
+    'first_name'         : 'John',
+    'last_name'          : 'Doe',
+    'email'              : 'john.doe@unkn.own',
+    'url'                : 'https://www.superbox.one',
+    'location'           : 'Unknown',
+    'bio'                : '',
+    'instagram_username' : 'john_doe'
 })
 ```
 ---
