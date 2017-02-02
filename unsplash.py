@@ -14,9 +14,11 @@ from .src.photos import Photos
 class Unsplash(object):
     def __init__(self, settings):
         self._settings = {
+            'application_id' : settings.get('application_id'),
+            'secret'         : settings.get('secret'),
             'callback_url'   : settings.get('callback_url'),
-            'api_url'        : 'https://api.unsplash.com',
-            'application_id' : settings.get('application_id')
+            'bearer_token'   : settings.get('bearer_token'),
+            'api_url'        : 'https://api.unsplash.com'
         }
 
     def auth(self):
