@@ -85,3 +85,27 @@ __Example__
 current_user_profile = unsplash.current_user.profile()
 ```
 ---
+
+### current_user.update_profile(options)
+Update the current user’s profile.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |Notes|
+|---|---|---|---|
+|__`options`__|_Object_|Required|Object with the following optional keys: `username`, `first_name`, `last_name`, `email`, `url`, `location`, `bio`, `instagram_username`|
+
+__Example__
+```python
+unsplash.current_user.update_profile({
+    'username'          : 'john_doe',
+    'first_name'        : 'John',
+    'last_name'         : 'Doe',
+    'email'             : 'john.doe@unkn.own',
+    'url'               : 'https://www.superbox.one',
+    'location'          : 'Unknown',
+    'bio'               : '',
+    'instagram_username': 'john_doe'
+})
+```
+---
