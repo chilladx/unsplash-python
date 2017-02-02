@@ -172,3 +172,24 @@ unsplash.users.likes(
 )
 ```
 ---
+
+### users.collections(username, page, per_page)
+Get a list of collections created by the user.
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Notes |
+|---|---|---|---|
+|__`username`__|_string_|Required||
+|__`page`__|_number_|Optional||
+|__`per_page`__|_number_|Optional||
+
+__Example__
+```python
+unsplash.users.collections(
+    username = 'naoufal',
+    page     = 2,
+    per_page = 15
+)
+```
+---
