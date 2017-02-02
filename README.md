@@ -19,3 +19,39 @@ unsplash = Unsplash({
 ===
 
 ### User
+
+
+---
+
+## Instance Methods
+- [Authorization](https://github.com/michael-hacker/unsplash-python#authorization)
+- [Current User](https://github.com/michael-hacker/unsplash-python#current-user)
+- [Users](https://github.com/michael-hacker/unsplash-python#users)
+- [Photos](https://github.com/michael-hacker/unsplash-python#photos)
+- [Categories](https://github.com/michael-hacker/unsplash-python#categories)
+- [Collections](https://github.com/michael-hacker/unsplash-python#collections)
+- [Search](https://github.com/michael-hacker/unsplash-python#searchallkeyword-page)
+- [Stats](https://github.com/michael-hacker/unsplash-python#stats)
+
+<div id="authorization" />
+
+### auth.get_authentication_url(scopes)
+Build an OAuth url with requested scopes.
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Default |
+|---|---|---|---|
+|__`scopes`__|_Array<string>_|Optional| `['public']` |
+
+__Example__
+```python
+authentication_url = unsplash.auth().get_authentication_url([
+    'public',
+    'read_user',
+    'write_user',
+    'read_photos',
+    'write_photos'
+])
+```
+---
