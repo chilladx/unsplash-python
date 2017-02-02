@@ -67,7 +67,7 @@ __Arguments__
 
 __Example__
 ```python
-access_token = unsplash.auth.user_authentication('{OAUTH_CODE}')
+access_token = unsplash.auth.user_authentication(code = '{OAUTH_CODE}')
 ```
 ---
 
