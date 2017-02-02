@@ -86,7 +86,7 @@ current_user_profile = unsplash.current_user().profile()
 ```
 ---
 
-### current_user.update_profile(options)
+### current_user().update_profile(options)
 Update the current user’s profile.
 
 __Arguments__
