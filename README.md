@@ -70,3 +70,18 @@ __Example__
 access_token = unsplash.auth.user_authentication('{OAUTH_CODE}')
 ```
 ---
+
+<div id="current-user" />
+
+### current_user.profile()
+Get the user’s profile.
+
+__Arguments__
+
+_N/A_
+
+__Example__
+```python
+current_user_profile = unsplash.current_user.profile()
+```
+---
