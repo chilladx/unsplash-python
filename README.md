@@ -55,3 +55,18 @@ authentication_url = unsplash.auth().get_authentication_url([
 ])
 ```
 ---
+
+### auth.user_authentication(code)
+Retrieve a user's access token.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`code`__|_string_|Required|
+
+__Example__
+```python
+access_token = unsplash.auth.user_authentication('{OAUTH_CODE}')
+```
+---
