@@ -35,7 +35,7 @@ unsplash = Unsplash({
 
 <div id="authorization" />
 
-### auth.get_authentication_url(scopes)
+### auth().get_authentication_url(scopes)
 Build an OAuth url with requested scopes.
 
 __Arguments__
@@ -56,7 +56,7 @@ authentication_url = unsplash.auth().get_authentication_url([
 ```
 ---
 
-### auth.user_authentication(code)
+### auth().user_authentication(code)
 Retrieve a user's access token.
 
 __Arguments__
@@ -67,13 +67,13 @@ __Arguments__
 
 __Example__
 ```python
-access_token = unsplash.auth.user_authentication(code = '{OAUTH_CODE}')
+access_token = unsplash.auth().user_authentication(code = '{OAUTH_CODE}')
 ```
 ---
 
 <div id="current-user" />
 
-### current_user.profile()
+### current_user().profile()
 Get the user’s profile.
 
 __Arguments__
@@ -82,7 +82,7 @@ _N/A_
 
 __Example__
 ```python
-current_user_profile = unsplash.current_user.profile()
+current_user_profile = unsplash.current_user().profile()
 ```
 ---
 
@@ -97,7 +97,7 @@ __Arguments__
 
 __Example__
 ```python
-unsplash.current_user.update_profile({
+unsplash.current_user().update_profile({
     'username'           : 'john_doe',
     'first_name'         : 'John',
     'last_name'          : 'Doe',
@@ -112,7 +112,7 @@ unsplash.current_user.update_profile({
 
 <div id="users" />
 
-### users.profile(username)
+### users().profile(username)
 Retrieve public details on a given user.
 
 __Arguments__
@@ -123,13 +123,13 @@ __Arguments__
 
 __Example__
 ```python
-users_profile = unsplash.users.profile(
+users_profile = unsplash.users().profile(
     username = 'naoufal'
 )
 ```
 ---
 
-### users.photos(username, page, per_page, order_by)
+### users().photos(username, page, per_page, order_by)
 Get a list of photos uploaded by a user.
 
 __Arguments__
@@ -143,14 +143,14 @@ __Arguments__
 
 __Example__
 ```python
-users_photos = unsplash.users.photos(
+users_photos = unsplash.users().photos(
     username = 'naoufal',
     order_by = 'popular'
 )
 ```
 ---
 
-### users.likes(username, page, per_page, order_by)
+### users().likes(username, page, per_page, order_by)
 Get a list of photos liked by a user.
 
 __Arguments__
@@ -164,7 +164,7 @@ __Arguments__
 
 __Example__
 ```python
-users_likes = unsplash.users.likes(
+users_likes = unsplash.users().likes(
     username = 'naoufal',
     page     = 2,
     per_page = 15,
@@ -173,7 +173,7 @@ users_likes = unsplash.users.likes(
 ```
 ---
 
-### users.collections(username, page, per_page)
+### users().collections(username, page, per_page)
 Get a list of collections created by the user.
 
 __Arguments__
@@ -186,10 +186,141 @@ __Arguments__
 
 __Example__
 ```python
-users_collections = unsplash.users.collections(
+users_collections = unsplash.users().collections(
     username = 'naoufal',
     page     = 2,
     per_page = 15
+)
+```
+---
+
+<div id="photos" />
+
+### photos().list_photos(page, per_page, order_by)
+Get a single page from the list of all photos.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
+
+__Example__
+```python
+photos = unsplash.photos().list_photos(
+    page     = 2,
+    per_page = 15,
+    order_by = 'popular'
+)
+```
+---
+
+### photos().list_curated_photos(page, per_page, order_by)
+Get a single page from the list of the curated photos.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
+
+__Example__
+```python
+curated_photos = unsplash.photos().list_curated_photos(
+    page     = 2,
+    per_page = 15,
+    order_by = 'popular'
+)
+```
+---
+
+### photos().search_photos(query, category, page, per_page)
+Get a single page from a photo search. Optionally limit your search to a set of categories by supplying the category ID’s.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`query`__|_string_|Optional|
+|__`category`__|_Array<number>_|Optional|
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+
+__Example__
+```python
+photos = unsplash.photos().search_photos(
+    query    = 'cats',
+    category = [11, 88],
+    page     = 1
+    per_page = 15
+)
+```
+---
+
+### photos().get_photo(id, width, height, rectangle)
+Retrieve a single photo.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`id`__|_string_|Required|
+|__`width`__|_number_|Optional|
+|__`height`__|_number_|Optional|
+|__`rectangle`__|_Array<number>_|Optional|
+
+__Example__
+```python
+photo = unsplash.photos().get_photo(
+    id        = '6r1_ZnnI5m8',
+    width     = 500,
+    height    = 500,
+    rectangle = [0, 0, 200, 200]
+)
+```
+---
+
+### photos().get_photo_stats(id)
+Retrieve a single photo's stats.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`id`__|_string_|Required|
+
+__Example__
+```python
+photo_stats = unsplash.photos().get_photo_stats(
+    id = '6r1_ZnnI5m8'
+)
+```
+---
+
+### photos().get_random_photo(width, height, query, username, featured, category)
+Retrieve a single random photo, given optional filters.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`width`__|_number_|Optional|
+|__`height`__|_number_|Optional|
+|__`query`__|_string_|Optional|
+|__`username`__|_string_|Optional|
+|__`featured`__|_boolean_|Optional|
+|__`collections`__|_Array<number>_|Optional|
+
+__Example__
+```python
+random_photo = unsplash.photos().get_random_photo(
+    width    = 500,
+    height   = 500,
+    username = 'michael_hacker'
 )
 ```
 ---
