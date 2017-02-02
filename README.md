@@ -164,7 +164,7 @@ __Arguments__
 
 __Example__
 ```python
-unsplash.users.likes(
+users_likes = unsplash.users.likes(
     username = 'naoufal',
     page     = 2,
     per_page = 15,
@@ -186,7 +186,7 @@ __Arguments__
 
 __Example__
 ```python
-unsplash.users.collections(
+users_collections = unsplash.users.collections(
     username = 'naoufal',
     page     = 2,
     per_page = 15
