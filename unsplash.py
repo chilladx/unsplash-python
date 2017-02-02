@@ -7,7 +7,7 @@
 
 from .src.rest   import Rest
 from .src.auth   import Auth
-from .src.users  import Users
+from .src.users  import CurrentUsers, Users
 from .src.photos import Photos
 
 
@@ -23,6 +23,9 @@ class Unsplash(object):
 
     def auth(self):
         return Auth(self._settings)
+
+    def current_users(self):
+        return CurrentUsers(self._settings)
 
     def users(self):
         return Users(self._settings)

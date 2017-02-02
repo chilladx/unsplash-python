@@ -14,12 +14,14 @@ logger = logging.getLogger('unsplash-python')
 
 
 class Rest(object):
-    def __init__(self, application_id):
+    def __init__(self, application_id = None):
         self._application_id = application_id
 
     def get(self, url, query = {}):
-        json_data          = None
-        query['client_id'] = self._application_id
+        json_data = None
+
+        if self._application_id:
+            query['client_id'] = self._application_id
 
         if query:
             url += '?' + urlencode(query)

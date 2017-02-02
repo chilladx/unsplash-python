@@ -19,7 +19,7 @@ class Auth(object):
         self._secret         = settings['secret']
         self._oauth_url      = 'https://unsplash.com/oauth/authorize'
 
-    def authentication_url(self, scope = ''):
+    def get_authentication_url(self, scope = ''):
         if scope:
             scope = ' '.join([item for item in scope])
 
@@ -35,7 +35,6 @@ class Auth(object):
         return url
 
     def user_authentication(self, code = ''):
-
         query = {
             'client_id'     : self._application_id,
             'client_secret' : self._secret,

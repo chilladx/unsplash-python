@@ -9,6 +9,18 @@ from .rest import Rest
 
 logger = logging.getLogger('unsplash-python')
 
+
+class CurrentUsers(object):
+    def __init__(self, settings):
+        self._application_id = settings['application_id']
+        self._api_url        = settings['api_url']
+
+    def profile(self, access_token):
+        url = self._api_url + '/me?access_token=' + access_token
+
+        return Rest().get(url)
+
+
 class Users(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
