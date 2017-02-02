@@ -149,3 +149,26 @@ users_photos = unsplash.users.photos(
 )
 ```
 ---
+
+### users.likes(username, page, per_page, order_by)
+Get a list of photos liked by a user.
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Notes |
+|---|---|---|---|
+|__`username`__|_string_|Required||
+|__`page`__|_number_|Optional||
+|__`per_page`__|_number_|Optional||
+|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
+
+__Example__
+```python
+unsplash.users.likes(
+    username = 'naoufal',
+    page     = 2,
+    per_page = 15;
+    order_by = 'popular'
+)
+```
+---
