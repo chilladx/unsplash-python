@@ -167,7 +167,7 @@ __Example__
 unsplash.users.likes(
     username = 'naoufal',
     page     = 2,
-    per_page = 15;
+    per_page = 15,
     order_by = 'popular'
 )
 ```
