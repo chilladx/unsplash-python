@@ -123,5 +123,24 @@ __Arguments__
 
 __Example__
 ```python
-users_profile = unsplash.users.profile('naoufal')
+users_profile = unsplash.users.profile(username = 'naoufal')
 ```
+---
+
+### users.photos(username, page, per_page, order_by)
+Get a list of photos uploaded by a user.
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Notes |
+|---|---|---|---|
+|__`username`__|_string_|Required||
+|__`page`__|_number_|Optional||
+|__`per_page`__|_number_|Optional||
+|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
+
+__Example__
+```python
+users_photos = unsplash.users.photos(username = 'naoufal', order_by = 'popular')
+```
+---
