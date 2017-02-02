@@ -123,7 +123,9 @@ __Arguments__
 
 __Example__
 ```python
-users_profile = unsplash.users.profile(username = 'naoufal')
+users_profile = unsplash.users.profile(
+    username = 'naoufal'
+)
 ```
 ---
 
@@ -141,6 +143,9 @@ __Arguments__
 
 __Example__
 ```python
-users_photos = unsplash.users.photos(username = 'naoufal', order_by = 'popular')
+users_photos = unsplash.users.photos(
+    username = 'naoufal',
+    order_by = 'popular'
+)
 ```
 ---
