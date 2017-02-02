@@ -109,3 +109,19 @@ unsplash.current_user.update_profile({
 })
 ```
 ---
+
+<div id="users" />
+
+### users.profile(username)
+Retrieve public details on a given user.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`username`__|_string_|Required|
+
+__Example__
+```python
+users_profile = unsplash.users.profile('naoufal')
+```
