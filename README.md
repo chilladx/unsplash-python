@@ -324,3 +324,22 @@ random_photo = unsplash.photos().get_random_photo(
 )
 ```
 ---
+
+### photos.upload_photo(photo)
+Upload a photo on behalf of the logged-in user. This requires the `write_photos` scope.
+
+Work in progress!
+
+---
+
+### photos.like_photo(id)
+Like a photo on behalf of the logged-in user. This requires the `write_likes` scope.
+
+Work in progress!
+
+---
+
+### photos.unlike_photo(id)
+Remove a user’s like of a photo.
+
+Work in progress!
