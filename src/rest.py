@@ -39,7 +39,12 @@ class Rest(object):
         
         except URLError as error:
             logger.error(
-                'Reason: {}'.format(rror.reason)
+                'Reason: {}'.format(error.reason)
             )
 
         return json_data
+
+    def put(self, url, query = {}):
+        # TODO
+
+        return False
