@@ -399,7 +399,7 @@ __Arguments__
 
 __Example__
 ```python
-unsplash.collections.list_featured_collections(
+list_featured_collections = unsplash.collections().list_featured_collections(
     page     = 1,
     per_page = 10,
 )
