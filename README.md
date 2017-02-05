@@ -324,21 +324,21 @@ random_photo = unsplash.photos().get_random_photo(
 ```
 ---
 
-### photos.upload_photo(photo)
+### photos().upload_photo(photo)
 Upload a photo on behalf of the logged-in user. This requires the `write_photos` scope.
 
 Work in progress!
 
 ---
 
-### photos.like_photo(id)
+### photos().like_photo(id)
 Like a photo on behalf of the logged-in user. This requires the `write_likes` scope.
 
 Work in progress!
 
 ---
 
-### photos.unlike_photo(id)
+### photos().unlike_photo(id)
 Remove a user’s like of a photo.
 
 Work in progress!
@@ -347,7 +347,7 @@ Work in progress!
 
 <div id="collections" />
 
-### collections.list_collections(page, per_page, order_by)
+### collections().list_collections(page, per_page, order_by)
 Get a single page from the list of all collections.
 
 __Arguments__
@@ -368,7 +368,7 @@ list_collections = unsplash.collections().list_collections(
 ```
 ---
 
-### collections.list_curated_collections(page, per_page)
+### collections().list_curated_collections(page, per_page)
 Get a single page from the list of curated collections.
 
 __Arguments__
