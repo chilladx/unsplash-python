@@ -360,7 +360,7 @@ __Arguments__
 
 __Example__
 ```python
-unsplash.collections.list_collections(
+list_collections = unsplash.collections.list_collections(
     page     = 1,
     per_page = 10,
     order_by = 'popular'
