@@ -51,3 +51,13 @@ class Collections(object):
         url = self._api_url + '/collections/curated/' + str(id)
 
         return Rest(self._application_id).get(url)
+
+    def get_collection_photos(self, id, page = 1, per_page = 10):
+        url = self._api_url + '/collections/' + str(id) + '/photos'
+
+        return Rest(self._application_id).get(url)
+
+    def get_curated_collection_photos(self, id, page = 1, per_page = 10):
+        url = self._api_url + '/collections/curated/' + str(id) + '/photos'
+
+        return Rest(self._application_id).get(url)
