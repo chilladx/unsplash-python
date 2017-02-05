@@ -485,3 +485,40 @@ unsplash().collections().get_curated_collection_photos(
 )
 ```
 ---
+
+### collections().create_collection(title, description, private)
+Create a new collection. This requires the `write_collections` scope.
+
+Work in progress!
+
+---
+
+### collections().update_collection(id, title, description, private)
+Update an existing collection belonging to the logged-in user. This requires the `write_collections` scope.
+
+Work in progress!
+
+---
+
+### collections().delete_collection(id)
+Delete a collection belonging to the logged-in user. This requires the `write_collections` scope.
+
+Work in progress!
+
+---
+
+### collections().add_photo_to_collection(collection_id, photo_id)
+Add a photo to one of the logged-in user’s collections. Requires the `write_collections` scope.
+
+Work in progress!
+
+---
+
+### collections().remove_photo_from_collection(collection_id, photo_id)
+Remove a photo from one of the logged-in user’s collections. Requires the `write_collections` scope.
+
+Work in progress!
+
+---
+
+<div id="search" />
