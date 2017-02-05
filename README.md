@@ -347,7 +347,7 @@ Work in progress!
 
 <div id="collections" />
 
-### collections().list_collections(page, per_page, order_by)
+### collections().list_collections(page, per_page)
 Get a single page from the list of all collections.
 
 __Arguments__
@@ -356,7 +356,6 @@ __Arguments__
 |---|---|---|---|
 |__`page`__|_number_|Optional||
 |__`per_page`__|_number_|Optional||
-|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
 
 __Example__
 ```python
