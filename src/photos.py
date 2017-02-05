@@ -57,3 +57,15 @@ class Photos(object):
         }
 
         return Rest(self._application_id).get(url, query)
+
+    def upload_photo(self, photo):
+        # Work in progress!
+        return None
+
+    def like_photo(self, id):
+        # Work in progress!
+        return None
+
+    def unlike_photo(self, id):
+        # Work in progress!
+        return None
