@@ -436,8 +436,56 @@ __Arguments__
 
 __Example__
 ```python
-curated_collectio = unsplash().collections().get_curated_collection(
+curated_collection = unsplash().collections().get_curated_collection(
     id = 134
+)
+```
+---
+
+### collections().get_collection_photos(id, order_by)
+Retrieve a collection’s photos.
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Notes |
+|---|---|---|---|
+|__`id`__|_number_|Required||
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
+
+
+__Example__
+```python
+collection_photos = unsplash().collections().get_collection_photos(
+    id       = 123456,
+    page     = 1,
+    per_page = 10,
+    order_by = 'popular'
+)
+```
+---
+
+### collections().get_curated_collection_photos(id, order_by)
+Or, for a curated collection:
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Notes |
+|---|---|---|---|
+|__`id`__|_number_|Required||
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
+
+
+__Example__
+```python
+unsplash().collections().get_curated_collection_photos(
+    id       = 88,
+    page     = 1,
+    per_page = 10,
+    order_by = 'popular'
 )
 ```
 ---
