@@ -344,6 +344,8 @@ Remove a user’s like of a photo.
 
 Work in progress!
 
+---
+
 <div id="categories" />
 
 ### categories.list_categories()
