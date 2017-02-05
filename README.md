@@ -123,7 +123,7 @@ __Arguments__
 __Example__
 ```python
 users_profile = unsplash.users().profile(
-    username = 'naoufal'
+    username = 'michael_hacker'
 )
 ```
 ---
