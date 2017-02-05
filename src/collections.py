@@ -61,3 +61,23 @@ class Collections(object):
         url = self._api_url + '/collections/curated/' + str(id) + '/photos'
 
         return Rest(self._application_id).get(url)
+
+    def create_collection(self, title, description = '', private = False):
+        # Work in progress
+        return None
+
+    def update_collection(self, title, description = '', private = False):
+        # Work in progress
+        return None
+
+    def delete_collection(self, id):
+        # Work in progress
+        return None
+
+    def add_photo_to_collection(self, collection_id, photo_id):
+        # Work in progress
+        return None
+
+    def remove_photo_from_collection(self, collection_id, photo_id):
+        # Work in progress
+        return None
