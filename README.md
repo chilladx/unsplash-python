@@ -405,3 +405,21 @@ list_featured_collections = unsplash.collections().list_featured_collections(
 )
 ```
 ---
+
+### collections().get_collection(id)
+Retrieve a single collection. To view a user’s private collections, the `read_collections` scope is required.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`id`__|_number_|Required|
+
+
+__Example__
+```python
+collection = unsplas()h.collections().get_collection(
+    id = 123456
+)
+```
+---
