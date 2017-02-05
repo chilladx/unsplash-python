@@ -423,3 +423,65 @@ collection = unsplas()h.collections().get_collection(
 )
 ```
 ---
+
+### collections().get_curated_collection(id)
+Or, for a curated collection:
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`id`__|_number_|Required|
+
+
+__Example__
+```python
+curated_collection = unsplash().collections().get_curated_collection(
+    id = 134
+)
+```
+---
+
+### collections().get_collection_photos(id, page, order_by)
+Retrieve a collection’s photos.
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Notes |
+|---|---|---|---|
+|__`id`__|_number_|Required||
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+
+
+__Example__
+```python
+collection_photos = unsplash().collections().get_collection_photos(
+    id       = 123456,
+    page     = 1,
+    per_page = 10
+)
+```
+---
+
+### collections().get_curated_collection_photos(id, page, order_by)
+Or, for a curated collection:
+
+__Arguments__
+
+| Argument | Type | Opt/Required | Notes |
+|---|---|---|---|
+|__`id`__|_number_|Required||
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+
+
+__Example__
+```python
+unsplash().collections().get_curated_collection_photos(
+    id       = 88,
+    page     = 1,
+    per_page = 10
+)
+```
+---
