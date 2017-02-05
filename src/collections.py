@@ -41,3 +41,8 @@ class Collections(object):
         }
 
         return Rest(self._application_id).get(url, query)
+
+    def get_collection(self, id):
+        url = self._api_url + '/collections/' + str(id)
+
+        return Rest(self._application_id).get(url)
