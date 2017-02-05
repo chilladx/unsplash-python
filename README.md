@@ -343,3 +343,19 @@ Work in progress!
 Remove a user’s like of a photo.
 
 Work in progress!
+
+<div id="categories" />
+
+### categories.list_categories()
+Get a list of all photo categories.
+
+__Arguments__
+
+_N/A_
+
+__Example__
+```python
+list_categories = unsplash.categories().list_categories()
+```
+---
+
