@@ -13,12 +13,22 @@ logger = logging.getLogger('unsplash-python')
 class CurrentUsers(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
+        self._bearer_token   = settings['bearer_token']
         self._api_url        = settings['api_url']
 
-    def profile(self, access_token):
-        url = self._api_url + '/me?access_token=' + access_token
+    def profile(self):
+        url = self._api_url + '/me?access_token=' + self._bearer_token
 
         return Rest().get(url)
+
+    def update_profile(self, **kwargs):
+        # TODO
+
+        url = self._api_url + '/me'
+
+        kwargs['access_token'] = self._bearer_token
+
+        return Rest().put(url, kwargs)
 
 
 class Users(object):
