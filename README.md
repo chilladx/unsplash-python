@@ -423,3 +423,21 @@ collection = unsplas()h.collections().get_collection(
 )
 ```
 ---
+
+### collections().get_curated_collection(id)
+Or, for a curated collection:
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`id`__|_number_|Required|
+
+
+__Example__
+```python
+curated_collectio = unsplash().collections().get_curated_collection(
+    id = 134
+)
+```
+---
