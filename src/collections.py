@@ -23,6 +23,16 @@ class Collections(object):
         return Rest(self._application_id).get(url, query)
 
     def list_curated_collections(self, page = 1, per_page = 10):
+        url = self._api_url + '/collections/curated'
+
+        query = {
+            'page'     : page,
+            'per_page' : per_page
+        }
+
+        return Rest(self._application_id).get(url, query)
+
+    def list_featured_collections(self, page = 1, per_page = 10):
         url = self._api_url + '/collections/featured'
 
         query = {
