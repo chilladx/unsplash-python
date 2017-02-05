@@ -29,7 +29,13 @@ class Photos(object):
     def get_photo(self, id, **kwargs):
         url = self._api_url + '/photos/' + id
 
-        return Rest(self._application_id).get(url, kwargs)
+        query = {
+            'w'    : kwargs.get('width', ''),
+            'h'    : kwargs.get('height', ''),
+            'rect' : kwargs.get('rectangle', '')
+        }
+
+        return Rest(self._application_id).get(url, query)
 
     def get_photo_stats(self, id):
         url = self._api_url + '/photos/' + id + '/stats'
@@ -39,4 +45,15 @@ class Photos(object):
     def get_random_photo(self, **kwargs):
         url = self._api_url + '/photos/random'
 
-        return Rest(self._application_id).get(url, kwargs)
+        query = {
+            'collections' : kwargs.get('collections', ''),
+            'featured'    : kwargs.get('featured', ''),
+            'username'    : kwargs.get('username', ''),
+            'query'       : kwargs.get('query', ''),
+            'w'           : kwargs.get('width', ''),
+            'h'           : kwargs.get('height', ''),
+            'orientation' : kwargs.get('orientation', ''),
+            'count'       : kwargs.get('count', '1')
+        }
+
+        return Rest(self._application_id).get(url, query)
