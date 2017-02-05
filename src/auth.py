@@ -5,6 +5,7 @@
 
 import logging
 
+from urllib.error   import URLError, HTTPError
 from urllib.parse   import urlencode
 from urllib.request import Request, urlopen
 
@@ -35,6 +36,8 @@ class Auth(object):
         return url
 
     def user_authentication(self, code = ''):
+        request = None
+
         query = {
             'client_id'     : self._application_id,
             'client_secret' : self._secret,
@@ -43,6 +46,18 @@ class Auth(object):
             'grant_type'    : 'authorization_code'
         }
 
-        request = Request('https://unsplash.com/oauth/token', urlencode(query).encode())
+        try:
+            request = Request('https://unsplash.com/oauth/token', urlencode(query).encode())
+            request = urlopen(request).read().decode()
 
-        return urlopen(request).read().decode()
+        except HTTPError as error:
+            logger.error(
+                'HTTP status {}'.format(error.code)
+            )
+        
+        except URLError as error:
+            logger.error(
+                'Reason: {}'.format(error.reason)
+            )
+
+        return request

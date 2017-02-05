@@ -18,8 +18,7 @@ class Unsplash(object):
             'application_id' : settings.get('application_id'),
             'secret'         : settings.get('secret'),
             'callback_url'   : settings.get('callback_url'),
-            'bearer_token'   : settings.get('bearer_token'),
-            'api_url'        : 'https://api.unsplash.com'
+            'bearer_token'   : settings.get('bearer_token')
         }
 
     def auth(self):

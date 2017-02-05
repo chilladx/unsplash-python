@@ -11,19 +11,18 @@ class Collections(object):
         self._application_id = settings['application_id']
         self._api_url        = settings['api_url']
 
-    def list_collections(self, page = 1, per_page = 10, order_by = 'popular'):
-        url = self._api_url + '/collections'
+    def list_collections(self, page = 1, per_page = 10):
+        url = '/collections'
 
         query = {
             'page'     : page,
-            'per_page' : per_page,
-            'order_by' : order_by
+            'per_page' : per_page
         }
 
         return Rest(self._application_id).get(url, query)
 
     def list_curated_collections(self, page = 1, per_page = 10):
-        url = self._api_url + '/collections/curated'
+        url = '/collections/curated'
 
         query = {
             'page'     : page,
@@ -33,7 +32,7 @@ class Collections(object):
         return Rest(self._application_id).get(url, query)
 
     def list_featured_collections(self, page = 1, per_page = 10):
-        url = self._api_url + '/collections/featured'
+        url = '/collections/featured'
 
         query = {
             'page'     : page,
@@ -43,30 +42,30 @@ class Collections(object):
         return Rest(self._application_id).get(url, query)
 
     def get_collection(self, id):
-        url = self._api_url + '/collections/' + str(id)
+        url = '/collections/%s' % str(id)
 
         return Rest(self._application_id).get(url)
 
     def get_curated_collection(self, id):
-        url = self._api_url + '/collections/curated/' + str(id)
+        url = '/collections/curated/%s' % str(id)
 
         return Rest(self._application_id).get(url)
 
     def get_collection_photos(self, id, page = 1, per_page = 10):
-        url = self._api_url + '/collections/' + str(id) + '/photos'
+        url = '/collections/%s/photos' % str(id)
 
         return Rest(self._application_id).get(url)
 
     def get_curated_collection_photos(self, id, page = 1, per_page = 10):
-        url = self._api_url + '/collections/curated/' + str(id) + '/photos'
+        url = '/collections/curated/%s/photos' % str(id)
 
         return Rest(self._application_id).get(url)
 
-    def create_collection(self, title, description = '', private = False):
+    def create_collection(self, title, description = None, private = False):
         # Work in progress
         return None
 
-    def update_collection(self, title, description = '', private = False):
+    def update_collection(self, title, description = None, private = False):
         # Work in progress
         return None
 

@@ -14,44 +14,59 @@ class CurrentUsers(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
         self._bearer_token   = settings['bearer_token']
-        self._api_url        = settings['api_url']
 
     def profile(self):
-        url = self._api_url + '/me?access_token=' + self._bearer_token
+        url = '/me?access_token=%s' % self._bearer_token
 
         return Rest().get(url)
 
-    def update_profile(self, **kwargs):
-        # TODO
+    def update_profile(self, options):
+        # Work in progress
 
-        url = self._api_url + '/me'
+        url = '/me'
 
-        kwargs['access_token'] = self._bearer_token
+        options['access_token'] = self._bearer_token
 
-        return Rest().put(url, kwargs)
+        return Rest().put(url, options)
 
 
 class Users(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
-        self._api_url        = settings['api_url']
  
     def profile(self, username):
-        url = self._api_url + '/users/' + username
+        url = '/users/%s' % username
 
         return Rest(self._application_id).get(url)
 
-    def photos(self, username, **kwargs):
-        url = self._api_url + '/users/' + username + '/photos'
+    def photos(self, username, page = None, per_page = None, order_by = None):
+        url = '/users/%s/photos' % username
 
-        return Rest(self._application_id).get(url, kwargs)
+        query = {
+            'page'     : page,
+            'per_page' : per_page,
+            'order_by' : order_by
+        }
 
-    def likes(self, username, **kwargs):
-        url = self._api_url + '/users/' + username + '/likes'
+        return Rest(self._application_id).get(url, query)
 
-        return Rest(self._application_id).get(url, kwargs)
+    def likes(self, username, page = None, per_page = None, order_by = None):
+        url = '/users/%s/likes' % username
 
-    def collections(self, username, **kwargs):
-        url = self._api_url + '/users/' + username + '/collections'
+        query = {
+            'page'     : page,
+            'per_page' : per_page,
+            'order_by' : order_by
+        }
 
-        return Rest(self._application_id).get(url, kwargs)
+        return Rest(self._application_id).get(url, query)
+
+    def collections(self, username, page = None, per_page = None):
+        url = '/users/%s/collections' % username
+
+        query = {
+            'page'     : page,
+            'per_page' : per_page
+        }
+
+        return Rest(self._application_id).get(url, query)

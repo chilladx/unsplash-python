@@ -16,15 +16,21 @@ logger = logging.getLogger('unsplash-python')
 class Rest(object):
     def __init__(self, application_id = None):
         self._application_id = application_id
+        self._api_url        = 'https://api.unsplash.com'
 
-    def get(self, url, query = {}):
+    def _request(self, url, method, query = None):
         json_data = None
+        url       = '%s%s' % (self._api_url, url)
 
         if self._application_id:
-            query['client_id'] = self._application_id
+            url += '?client_id=%s' % self._application_id
 
         if query:
-            url += '?' + urlencode(query)
+            query = { key: value for key, value in query.items() if value }
+            url += urlencode(query)
+
+        #headers = self._get_auth_header()
+        #headers.update(query)
 
         try:
             with urlopen(url) as response:
@@ -43,6 +49,14 @@ class Rest(object):
             )
 
         return json_data
+
+    # def _get_auth_header(self):
+    #     return {
+    #         'Authorization' : 'Bearer %s' % ''
+    #     }
+
+    def get(self, url, query = None):
+        return self._request(url, 'get', query = query)
 
     def put(self, url, query = {}):
         # TODO

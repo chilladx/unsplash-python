@@ -9,41 +9,58 @@ from .rest import Rest
 class Photos(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
-        self._api_url        = settings['api_url']
 
-    def list_photos(self, **kwargs):
-        url = self._api_url + '/photos'
-
-        return Rest(self._application_id).get(url, kwargs)
-
-    def list_curated_photos(self, **kwargs):
-        url = self._api_url + '/photos/curated'
-
-        return Rest(self._application_id).get(url, kwargs)
-
-    def search_photos(self, **kwargs):
-        url = self._api_url + '/search/photos'
-
-        return Rest(self._application_id).get(url, kwargs)
-
-    def get_photo(self, id, **kwargs):
-        url = self._api_url + '/photos/' + id
+    def list_photos(self, page = 1, per_page = 10, order_by = None):
+        url = '/photos'
 
         query = {
-            'w'    : kwargs.get('width', ''),
-            'h'    : kwargs.get('height', ''),
-            'rect' : kwargs.get('rectangle', '')
+            'page'     : page,
+            'per_page' : per_page,
+            'order_by' : order_by
+        }
+
+        return Rest(self._application_id).get(url, query)
+
+    def list_curated_photos(self, page = 1, per_page = 10, order_by = None):
+        url = '/photos/curated'
+
+        query = {
+            'page'     : page,
+            'per_page' : per_page,
+            'order_by' : order_by
+        }
+
+        return Rest(self._application_id).get(url, query)
+
+    def search_photos(self, query, page = 1, per_page = 10):
+        url = '/search/photos'
+
+        query = {
+            'query'     : query,
+            'page'      : page,
+            'per_page'  : per_page
+        }
+
+        return Rest(self._application_id).get(url, query)
+
+    def get_photo(self, id, width = None, height = None, rectangle = None):
+        url = '/photos/%s' % id
+
+        query = {
+            'w'    : width,
+            'h'    : height,
+            'rect' : rectangle
         }
 
         return Rest(self._application_id).get(url, query)
 
     def get_photo_stats(self, id):
-        url = self._api_url + '/photos/' + id + '/stats'
+        url = '/photos/%s/stats' % id
 
         return Rest(self._application_id).get(url)
 
     def get_random_photo(self, **kwargs):
-        url = self._api_url + '/photos/random'
+        url = '/photos/random'
 
         query = {
             'collections' : kwargs.get('collections', ''),
