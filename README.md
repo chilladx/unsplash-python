@@ -386,3 +386,22 @@ list_curated_collections = unsplash.collections().list_curated_collections(
 )
 ```
 ---
+
+### collections().list_featured_collections(page, per_page)
+Get a single page from the list of featured collections.
+
+__Arguments__
+
+| Argument | Type | Opt/Required |
+|---|---|---|
+|__`page`__|_number_|Optional|
+|__`per_page`__|_number_|Optional|
+
+__Example__
+```python
+unsplash.collections.list_featured_collections(
+    page     = 1,
+    per_page = 10,
+)
+```
+---
