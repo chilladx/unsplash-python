@@ -5,10 +5,11 @@
     Author: Michael Hacker <mh@superchic.at>
 """
 
-from .src.rest   import Rest
-from .src.auth   import Auth
-from .src.users  import CurrentUsers, Users
-from .src.photos import Photos
+from .src.rest        import Rest
+from .src.auth        import Auth
+from .src.collections import Collections
+from .src.users       import CurrentUsers, Users
+from .src.photos      import Photos
 
 
 class Unsplash(object):
@@ -33,3 +34,5 @@ class Unsplash(object):
     def photos(self):
         return Photos(self._settings)
 
+    def collections(self):
+        return Collections(self._settings)
