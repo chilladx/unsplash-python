@@ -28,7 +28,6 @@ unsplash = Unsplash({
 - [Current User](https://github.com/michael-hacker/unsplash-python#current-user)
 - [Users](https://github.com/michael-hacker/unsplash-python#users)
 - [Photos](https://github.com/michael-hacker/unsplash-python#photos)
-- [Categories](https://github.com/michael-hacker/unsplash-python#categories)
 - [Collections](https://github.com/michael-hacker/unsplash-python#collections)
 - [Search](https://github.com/michael-hacker/unsplash-python#searchallkeyword-page)
 - [Stats](https://github.com/michael-hacker/unsplash-python#stats)
@@ -346,18 +345,25 @@ Work in progress!
 
 ---
 
-<div id="categories" />
+<div id="collections" />
 
-### categories.list_categories()
-Get a list of all photo categories.
+### collections.list_collections(page, per_page, order_by)
+Get a single page from the list of all collections.
 
 __Arguments__
 
-_N/A_
+| Argument | Type | Opt/Required |Notes|
+|---|---|---|---|
+|__`page`__|_number_|Optional||
+|__`per_page`__|_number_|Optional||
+|__`order_by`__|_string_|Optional|`latest`, `popular` or `oldest`|
 
 __Example__
 ```python
-list_categories = unsplash.categories().list_categories()
+unsplash.collections.list_collections(
+    page     = 1,
+    per_page = 10,
+    order_by = 'popular'
+)
 ```
 ---
-
