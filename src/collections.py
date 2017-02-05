@@ -46,3 +46,8 @@ class Collections(object):
         url = self._api_url + '/collections/' + str(id)
 
         return Rest(self._application_id).get(url)
+
+    def get_curated_collection(self, id):
+        url = self._api_url + '/collections/curated/' + str(id)
+
+        return Rest(self._application_id).get(url)
