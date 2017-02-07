@@ -1,13 +1,16 @@
 # unsplash-python
 A unofficial Python client for the [Unsplash API](https://unsplash.com/developers).
 
+## Dependencies
+
+    $ pip install requests
 
 ## Usage
 ### Creating an instance
 To create an instance, simply provide an _Object_ with your `application_id`, `secret` and `callback_url`.
 
 ```python
-from unsplash import Unsplash
+import unsplash
 
 unsplash = Unsplash({
     'application_id' : '{APP_ID}',
