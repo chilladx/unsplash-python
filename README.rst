@@ -1,7 +1,3 @@
-.. image:: https://pypip.in/v/unsplash-python/badge.png
-    :target: https://crate.io/packages/unsplash-python/
-    :alt: Latest PyPI version
-
 |Latest Version| |Build Status|
 
 unsplash-python
