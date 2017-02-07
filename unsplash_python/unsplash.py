@@ -1,15 +1,15 @@
 """
     A unofficial Python wrapper for the Unsplash API.
-    
+
     GitHub: https://github.com/michael-hacker/unsplash-python
     Author: Michael Hacker <mh@superchic.at>
 """
 
-from .src.rest        import Rest
-from .src.auth        import Auth
-from .src.collections import Collections
-from .src.users       import CurrentUsers, Users
-from .src.photos      import Photos
+from unsplash_python.src.rest        import Rest
+from unsplash_python.src.auth        import Auth
+from unsplash_python.src.collections import Collections
+from unsplash_python.src.users       import CurrentUsers, Users
+from unsplash_python.src.photos      import Photos
 
 
 class Unsplash(object):
