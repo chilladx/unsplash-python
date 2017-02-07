@@ -10,7 +10,7 @@ setup(
     name='unsplash-python',
     version='1.0.0a2',
     packages=['unsplash', 'unsplash.src'],
-    description='A unofficial Python wrapper for the Unsplash API',
+    description='A Python wrapper for the Unsplash API',
     url='https://github.com/michael-hacker/unsplash-python.git',
     license='MIT',
     author='Michael Hacker',
@@ -21,7 +21,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.5'
     ],
-    keywords=['api', 'development', 'python', 'unsplash'],
+    keywords='api development python unsplash',
     install_requires=requirements,
     zip_safe=True
 )
