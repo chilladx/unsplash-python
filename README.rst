@@ -1,3 +1,7 @@
+.. image:: https://pypip.in/v/$REPO/badge.png
+    :target: https://crate.io/packages/$REPO/
+    :alt: Latest PyPI version
+
 |Latest Version| |Build Status|
 
 unsplash-python
