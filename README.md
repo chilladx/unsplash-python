@@ -3,8 +3,6 @@ A unofficial Python client for the [Unsplash API](https://unsplash.com/developer
 
 ## Dependencies
 
-::
-
     $ pip install requests
 
 ## Usage
