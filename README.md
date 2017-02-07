@@ -1,6 +1,9 @@
 # unsplash-python
 A unofficial Python client for the [Unsplash API](https://unsplash.com/developers).
 
+## Dependencies
+
+$ pip install requests
 
 ## Usage
 ### Creating an instance
