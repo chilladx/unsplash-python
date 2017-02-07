@@ -1,4 +1,4 @@
-|Latest Version|\ |Build Status|
+|Latest Version| |Build Status|
 
 unsplash-python
 ===============
