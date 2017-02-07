@@ -21,7 +21,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.5'
     ],
-    keywords=['api', 'development', 'python', 'unsplash'],
+    keywords='api development python unsplash',
     install_requires=requirements,
     zip_safe=True
 )
