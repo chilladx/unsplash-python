@@ -10,7 +10,7 @@ setup(
     name='unsplash-python',
     version='1.0.0a2',
     packages=['unsplash', 'unsplash.src'],
-    description='A unofficial Python wrapper for the Unsplash API',
+    description='A Python wrapper for the Unsplash API',
     url='https://github.com/michael-hacker/unsplash-python.git',
     license='MIT',
     author='Michael Hacker',
