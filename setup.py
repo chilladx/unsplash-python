@@ -8,7 +8,7 @@ requirements = [str(req.req) for req in install_requirements]
 
 setup(
     name='unsplash-python',
-    version='1.0.0a2',
+    version='1.0.0a3',
     packages=['unsplash_python', 'unsplash_python.src'],
     description='A Python wrapper for the Unsplash API',
     url='https://github.com/michael-hacker/unsplash-python.git',
