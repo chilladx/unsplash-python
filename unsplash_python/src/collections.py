@@ -9,7 +9,7 @@ from .rest import Rest
 class Collections(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
-        self._api_url        = settings['api_url']
+        self._api_url = settings['api_url']
 
     def list_collections(self, page=1, per_page=10):
         url = '/collections'
