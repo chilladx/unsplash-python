@@ -11,6 +11,7 @@ class UnsplashTestCase(unittest.TestCase):
         self.unsplash = Unsplash({
             'application_id': os.environ.get('application_id', ''),
             'secret': os.environ.get('secret', ''),
-            'callback_url': '',
-            'bearer_token': os.environ.get('bearer_token', ''),
+            'callback_url': ''
         })
+
+        self._access_token = os.environ.get('access_token', '')
