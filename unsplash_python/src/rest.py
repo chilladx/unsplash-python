@@ -21,22 +21,12 @@ class Rest(object):
             'Accept-Version': 'v1'
         }
 
-    def _get_params(self, params):
-        if params:
-            params = { key: value for key, value in params.items() if value }
-        else:
-            params = {}
+    def get(self, url, params={}):
+        params = { key: value for key, value in params.items() if value }
 
         if self._application_id:
             params['client_id'] = self._application_id
 
-        params = { key: value for key, value in params.items() if value }
-
-        return params
-
-    def get(self, url, params=None):
-        if params:
-            params = self._get_params(params)
 
         url = '%s%s' % (self._api_url, url)
 
