@@ -6,59 +6,53 @@
 import logging
 import json
 
-from urllib.error   import URLError, HTTPError
-from urllib.parse   import urlencode
+import requests
+
+from urllib.error import URLError, HTTPError
+from urllib.parse import urlencode
 from urllib.request import urlopen
 
 logger = logging.getLogger('unsplash-python')
 
 
 class Rest(object):
-    def __init__(self, application_id = None):
+    def __init__(self, application_id=None):
         self._application_id = application_id
-        self._api_url        = 'https://api.unsplash.com'
+        self._api_url = 'https://api.unsplash.com'
 
-    def _request(self, url, method, query = None):
-        json_data = None
-        url       = '%s%s' % (self._api_url, url)
+    def _get_header(self):
+        return {
+            'Authorization': 'Bearer %s' % '',
+            'Accept-Version': 'v1'
+        }
+
+    def _get_params(self, params):
+        if params:
+            params = { key: value for key, value in params.items() if value }
+        else:
+            params = {}
 
         if self._application_id:
-            url += '?client_id=%s' % self._application_id
+            params['client_id'] = self._application_id
 
-        if query:
-            query = { key: value for key, value in query.items() if value }
-            url += urlencode(query)
+        params = { key: value for key, value in params.items() if value }
 
-        #headers = self._get_auth_header()
-        #headers.update(query)
+        return params
+
+    def get(self, url, params=None):
+        if params:
+            params = self._get_params(params)
+
+        url = '%s%s' % (self._api_url, url)
 
         try:
-            with urlopen(url) as response:
-                body = response.read()
+            response = requests.get(url, params=params)
+        except Exception as e:
+            logger.error('Connection error %s' %e)
 
-            json_data = json.loads(body.decode('utf-8'))
+        return response.json()
 
-        except HTTPError as error:
-            logger.error(
-                'HTTP status {}'.format(error.code)
-            )
-        
-        except URLError as error:
-            logger.error(
-                'Reason: {}'.format(error.reason)
-            )
-
-        return json_data
-
-    # def _get_auth_header(self):
-    #     return {
-    #         'Authorization' : 'Bearer %s' % ''
-    #     }
-
-    def get(self, url, query = None):
-        return self._request(url, 'get', query = query)
-
-    def put(self, url, query = {}):
+    def put(self, url, params={}):
         # TODO
 
         return False
