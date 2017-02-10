@@ -317,7 +317,6 @@ __Arguments__
 
 | Argument | Type | Opt/Required |
 |---|---|---|
-
 |__`collections`__|_Array<number>_|Optional|
 |__`featured`__|_boolean_|Optional|
 |__`username`__|_string_|Optional|
