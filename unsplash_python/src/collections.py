@@ -63,7 +63,12 @@ class Collections(object):
     def get_curated_collection_photos(self, id, page=1, per_page=10):
         url = '/collections/curated/%s/photos' % str(id)
 
-        return Rest(self._application_id).get(url)
+        params = {
+            'page': page,
+            'per_page': per_page
+        }
+
+        return Rest(self._application_id).get(url, params)
 
     def create_collection(self, title, description=None, private=False):
         # Work in progress
