@@ -7,12 +7,12 @@ from .rest import Rest
 
 
 class CurrentUsers(object):
-    def __init__(self, settings):
-        self._application_id = settings['application_id']
-        self._bearer_token = settings['bearer_token']
+    def __init__(self, application_id=None, access_token=None):
+        self._application_id = application_id
+        self._access_token = access_token
 
     def profile(self):
-        url = '/me?access_token=%s' % self._bearer_token
+        url = '/me?access_token=%s' % self._access_token
 
         return Rest().get(url)
 
@@ -21,7 +21,7 @@ class CurrentUsers(object):
 
         return Rest(
             application_id=self._application_id,
-            bearer_token=self._bearer_token
+            access_token=self._access_token
         ).put(url, params)
 
 

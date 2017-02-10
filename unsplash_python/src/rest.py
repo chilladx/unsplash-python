@@ -11,13 +11,13 @@ logger = logging.getLogger('unsplash-python')
 
 
 class Rest(object):
-    def __init__(self, application_id=None, bearer_token=None):
+    def __init__(self, application_id=None, access_token=None):
         self._application_id = application_id
-        self._bearer_token = bearer_token
+        self._access_token = access_token
         self._api_url = 'https://api.unsplash.com'
 
     def get(self, url, params={}):
-        json = None
+        result = None
         params = { key: value for key, value in params.items() if value }
 
         if self._application_id:
@@ -27,18 +27,26 @@ class Rest(object):
 
         try:
             response = requests.get(url, params=params)
-            json = response.json()
         except Exception as e:
             logger.error('Connection error %s' %e)
 
-        return json
+        try:
+            if response.status_code == 200:
+                result = response.json()
+            else:
+                errors = response.json().get('errors')
+                logger.error('Connection error %s' %errors)
+        except ValueError:
+            result = None
+
+        return result
 
     def put(self, url, params={}):
-        json = None
+        result = None
         params = { key: value for key, value in params.items() if value }
         
         headers = {
-            'Authorization': 'Bearer %s' % self._bearer_token,
+            'Authorization': 'Bearer %s' % self._access_token,
             'Accept-Version': 'v1'
         }
 
@@ -46,8 +54,16 @@ class Rest(object):
 
         try:
             response = requests.put(url, params=params, headers=headers)
-            json = response.json()
         except Exception as e:
             logger.error('Connection error %s' %e)
 
-        return json
+        try:
+            if response.status_code == 200:
+                result = response.json()
+            else:
+                errors = response.json().get('errors')
+                logger.error('Connection error %s' %errors)
+        except ValueError:
+            result = None
+
+        return result

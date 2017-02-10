@@ -15,15 +15,17 @@ class Unsplash(object):
         self._settings = {
             'application_id': settings.get('application_id', ''),
             'secret': settings.get('secret', ''),
-            'callback_url': settings.get('callback_url', ''),
-            'bearer_token': settings.get('bearer_token', '')
+            'callback_url': settings.get('callback_url', '')
         }
 
     def auth(self):
         return Auth(self._settings)
 
-    def current_users(self):
-        return CurrentUsers(self._settings)
+    def current_users(self, access_token=None):
+        return CurrentUsers(
+            application_id=self._settings['application_id'],
+            access_token=access_token,
+        )
 
     def users(self):
         return Users(self._settings)
