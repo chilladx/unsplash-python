@@ -16,14 +16,13 @@ class CurrentUsers(object):
 
         return Rest().get(url)
 
-    def update_profile(self, options):
-        # Work in progress!
-
+    def update_profile(self, params):
         url = '/me'
 
-        options['access_token'] = self._bearer_token
-
-        return Rest().put(url, options)
+        return Rest(
+            application_id=self._application_id,
+            bearer_token=self._bearer_token
+        ).put(url, params)
 
 
 class Users(object):
