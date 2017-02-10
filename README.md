@@ -20,9 +20,9 @@ To create an instance, simply provide an _Object_ with your `application_id`, `s
 import unsplash
 
 unsplash = Unsplash({
-    'application_id' : '{APP_ID}',
-    'secret'         : '{APP_SECRET}',
-    'callback_url'   : '{CALLBACK_URL}'
+    'application_id': '{application_id}',
+    'secret': '{secret}',
+    'callback_url': '{callback_url}'
 })
 ```
 
@@ -132,8 +132,8 @@ __Arguments__
 
 __Example__
 ```python
-users_profile = unsplash.users().profile(
-    username = 'michael_hacker'
+unsplash.users().profile(
+    username='michael_hacker'
 )
 ```
 ---
@@ -152,8 +152,8 @@ __Arguments__
 
 __Example__
 ```python
-users_photos = unsplash.users().photos(
-    username = 'naoufal',
+unsplash.users().photos(
+    username='naoufal',
     order_by = 'popular'
 )
 ```
@@ -218,10 +218,10 @@ __Arguments__
 
 __Example__
 ```python
-photos = unsplash.photos().list_photos(
-    page     = 2,
-    per_page = 15,
-    order_by = 'popular'
+unsplash.photos().list_photos(
+    page=2,
+    per_page=15,
+    order_by='popular'
 )
 ```
 ---
@@ -239,10 +239,10 @@ __Arguments__
 
 __Example__
 ```python
-curated_photos = unsplash.photos().list_curated_photos(
-    page     = 2,
-    per_page = 15,
-    order_by = 'popular'
+unsplash.photos().list_curated_photos(
+    page=2,
+    per_page=15,
+    order_by='popular'
 )
 ```
 ---
@@ -261,11 +261,11 @@ __Arguments__
 
 __Example__
 ```python
-photos = unsplash.photos().search_photos(
-    query    = 'cats',
-    category = [11, 88],
-    page     = 1
-    per_page = 15
+unsplash.photos().search_photos(
+    query='lisboa',
+    category=[11, 88],
+    page=1
+    per_page=15
 )
 ```
 ---
@@ -284,11 +284,11 @@ __Arguments__
 
 __Example__
 ```python
-photo = unsplash.photos().get_photo(
-    id        = '6r1_ZnnI5m8',
-    width     = 500,
-    height    = 500,
-    rectangle = [0, 0, 200, 200]
+unsplash.photos().get_photo(
+    id='3PmwYw2uErY',
+    width=500,
+    height=500,
+    rectangle=[0, 0, 200, 200]
 )
 ```
 ---
@@ -304,8 +304,8 @@ __Arguments__
 
 __Example__
 ```python
-photo_stats = unsplash.photos().get_photo_stats(
-    id = '6r1_ZnnI5m8'
+unsplash.photos().get_photo_stats(
+    id='3PmwYw2uErY'
 )
 ```
 ---
@@ -317,19 +317,19 @@ __Arguments__
 
 | Argument | Type | Opt/Required |
 |---|---|---|
+
+|__`collections`__|_Array<number>_|Optional|
+|__`featured`__|_boolean_|Optional|
+|__`username`__|_string_|Optional|
+|__`query`__|_string_|Optional|
 |__`width`__|_number_|Optional|
 |__`height`__|_number_|Optional|
-|__`query`__|_string_|Optional|
-|__`username`__|_string_|Optional|
-|__`featured`__|_boolean_|Optional|
-|__`collections`__|_Array<number>_|Optional|
 
 __Example__
 ```python
-random_photo = unsplash.photos().get_random_photo(
-    width    = 500,
-    height   = 500,
-    username = 'michael_hacker'
+unsplash.photos().get_random_photo(
+    username='michael_hacker',
+    width=500
 )
 ```
 ---
