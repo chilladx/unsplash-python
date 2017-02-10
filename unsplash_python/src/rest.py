@@ -22,6 +22,7 @@ class Rest(object):
         }
 
     def get(self, url, params={}):
+        json = None
         params = { key: value for key, value in params.items() if value }
 
         if self._application_id:
@@ -32,10 +33,11 @@ class Rest(object):
 
         try:
             response = requests.get(url, params=params)
+            json = response.json()
         except Exception as e:
             logger.error('Connection error %s' %e)
 
-        return response.json()
+        return json
 
     def put(self, url, params={}):
         # TODO
