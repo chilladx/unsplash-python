@@ -38,31 +38,31 @@ class Users(object):
     def photos(self, username, page=None, per_page=None, order_by=None):
         url = '/users/%s/photos' % username
 
-        query = {
+        params = {
             'page': page,
             'per_page': per_page,
             'order_by': order_by
         }
 
-        return Rest(self._application_id).get(url, query)
+        return Rest(self._application_id).get(url, params)
 
     def likes(self, username, page=None, per_page=None, order_by=None):
         url = '/users/%s/likes' % username
 
-        query = {
+        params = {
             'page': page,
             'per_page': per_page,
             'order_by': order_by
         }
 
-        return Rest(self._application_id).get(url, query)
+        return Rest(self._application_id).get(url, params)
 
     def collections(self, username, page=None, per_page=None):
         url = '/users/%s/collections' % username
 
-        query = {
+        params = {
             'page': page,
             'per_page': per_page
         }
 
-        return Rest(self._application_id).get(url, query)
+        return Rest(self._application_id).get(url, params)
