@@ -4,13 +4,8 @@
 # Author: Michael Hacker <mh@superchic.at>
 
 import logging
-import json
 
 import requests
-
-from urllib.error import URLError, HTTPError
-from urllib.parse import urlencode
-from urllib.request import urlopen
 
 logger = logging.getLogger('unsplash-python')
 
