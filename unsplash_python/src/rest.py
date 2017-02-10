@@ -1,7 +1,7 @@
-"""
-    GitHub: https://github.com/michael-hacker/unsplash-python
-    Author: Michael Hacker <mh@superchic.at>
-"""
+# A unofficial Python wrapper for the Unsplash API.
+#
+# GitHub: https://github.com/michael-hacker/unsplash-python
+# Author: Michael Hacker <mh@superchic.at>
 
 import logging
 import json
