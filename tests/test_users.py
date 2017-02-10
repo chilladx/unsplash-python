@@ -8,11 +8,17 @@ from unsplash_python.unsplash import Unsplash
 
 class CurrentUsers(UnsplashTestCase):
     def test_profile(self):
-        response = self.unsplash.current_users().profile()
+        response = self.unsplash.current_users(
+            access_token=self._access_token
+        ).profile()
+        self.assertIsNotNone(response)
         self.assertIsInstance(response, dict)
 
-    def update_profile(self):
-        response = self.unsplash.current_users().update_profile()
+    def test_update_profile(self):
+        response = self.unsplash.current_users(
+            access_token=self._access_token
+        ).update_profile({})
+        self.assertIsNotNone(response)
         self.assertIsInstance(response, dict)
 
 
