@@ -9,7 +9,6 @@ from .rest import Rest
 class Collections(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
-        self._api_url = settings['api_url']
 
     def list_collections(self, page=1, per_page=10):
         url = '/collections'
@@ -54,7 +53,12 @@ class Collections(object):
     def get_collection_photos(self, id, page=1, per_page=10):
         url = '/collections/%s/photos' % str(id)
 
-        return Rest(self._application_id).get(url)
+        params = {
+            'page': page,
+            'per_page': per_page
+        }
+
+        return Rest(self._application_id).get(url, params)
 
     def get_curated_collection_photos(self, id, page=1, per_page=10):
         url = '/collections/curated/%s/photos' % str(id)
