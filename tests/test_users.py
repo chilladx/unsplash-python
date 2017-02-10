@@ -10,7 +10,11 @@ class CurrentUsers(UnsplashTestCase):
     def test_profile(self):
         response = self.unsplash.current_users().profile()
         self.assertIsInstance(response, dict)
-        self.assertEqual(response.get('username'), 'michael_hacker')
+
+    def update_profile(self):
+        response = self.unsplash.current_users().update_profile()
+        self.assertIsInstance(response, dict)
+
 
 class Users(UnsplashTestCase):
     def test_profile(self):
