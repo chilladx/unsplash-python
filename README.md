@@ -153,8 +153,8 @@ __Arguments__
 __Example__
 ```python
 unsplash.users().photos(
-    username='naoufal',
-    order_by = 'popular'
+    username='michael_hacker',
+    order_by='popular'
 )
 ```
 ---
@@ -173,11 +173,11 @@ __Arguments__
 
 __Example__
 ```python
-users_likes = unsplash.users().likes(
-    username = 'naoufal',
-    page     = 2,
-    per_page = 15,
-    order_by = 'popular'
+unsplash.users().likes(
+    username 'michael_hacker',
+    page =2,
+    per_page=15,
+    order_by='popular'
 )
 ```
 ---
