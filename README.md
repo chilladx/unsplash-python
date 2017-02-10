@@ -195,10 +195,10 @@ __Arguments__
 
 __Example__
 ```python
-users_collections = unsplash.users().collections(
-    username = 'naoufal',
-    page     = 2,
-    per_page = 15
+unsplash.users().collections(
+    username='michael_hacker',
+    page=2,
+    per_page=15
 )
 ```
 ---
@@ -368,10 +368,10 @@ __Arguments__
 
 __Example__
 ```python
-list_collections = unsplash.collections().list_collections(
-    page     = 1,
-    per_page = 10,
-    order_by = 'popular'
+unsplash.collections().list_collections(
+    page=1,
+    per_page=10,
+    order_by='popular'
 )
 ```
 ---
@@ -388,9 +388,9 @@ __Arguments__
 
 __Example__
 ```python
-list_curated_collections = unsplash.collections().list_curated_collections(
-    page     = 1,
-    per_page = 10,
+unsplash.collections().list_curated_collections(
+    page=1,
+    per_page=10,
 )
 ```
 ---
@@ -407,9 +407,9 @@ __Arguments__
 
 __Example__
 ```python
-list_featured_collections = unsplash.collections().list_featured_collections(
-    page     = 1,
-    per_page = 10,
+unsplash.collections().list_featured_collections(
+    page=1,
+    per_page=10,
 )
 ```
 ---
@@ -426,8 +426,8 @@ __Arguments__
 
 __Example__
 ```python
-collection = unsplas()h.collections().get_collection(
-    id = 123456
+unsplash().collections().get_collection(
+    id=123456
 )
 ```
 ---
@@ -444,8 +444,8 @@ __Arguments__
 
 __Example__
 ```python
-curated_collection = unsplash().collections().get_curated_collection(
-    id = 134
+unsplash().collections().get_curated_collection(
+    id=134
 )
 ```
 ---
@@ -464,10 +464,10 @@ __Arguments__
 
 __Example__
 ```python
-collection_photos = unsplash().collections().get_collection_photos(
-    id       = 123456,
-    page     = 1,
-    per_page = 10
+unsplash().collections().get_collection_photos(
+    id=123456,
+    page=1,
+    per_page=10
 )
 ```
 ---
@@ -487,9 +487,9 @@ __Arguments__
 __Example__
 ```python
 unsplash().collections().get_curated_collection_photos(
-    id       = 88,
-    page     = 1,
-    per_page = 10
+    id=88,
+    page=1,
+    per_page=10
 )
 ```
 ---
