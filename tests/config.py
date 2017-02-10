@@ -12,5 +12,5 @@ class UnsplashTestCase(unittest.TestCase):
             'application_id': os.environ.get('application_id', ''),
             'secret': os.environ.get('secret', ''),
             'callback_url': '',
-            'bearer_token': ''
+            'bearer_token': os.environ.get('bearer_token', ''),
         })
