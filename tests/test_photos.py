@@ -6,7 +6,7 @@ from config import UnsplashTestCase
 from unsplash_python.unsplash import Unsplash
 
 
-class AuthPhotos(UnsplashTestCase):
+class Photos(UnsplashTestCase):
     def test_list_photos(self):
         response = self.unsplash.photos().list_photos(
             per_page=2
