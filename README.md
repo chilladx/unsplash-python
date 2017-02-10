@@ -91,7 +91,7 @@ _N/A_
 
 __Example__
 ```python
-current_user_profile = unsplash.current_user().profile()
+unsplash.current_user().profile()
 ```
 ---
 
@@ -107,14 +107,11 @@ __Arguments__
 __Example__
 ```python
 unsplash.current_user().update_profile({
-    'username'           : 'john_doe',
-    'first_name'         : 'John',
-    'last_name'          : 'Doe',
-    'email'              : 'john.doe@unkn.own',
-    'url'                : 'https://www.superbox.one',
-    'location'           : 'Unknown',
-    'bio'                : '',
-    'instagram_username' : 'john_doe'
+    'username': 'michael_hacker',
+    'first_name': 'Michael',
+    'last_name': 'Hacker',
+    'url': 'https://www.superbox.one',
+    'location': 'Linz'
 })
 ```
 ---
