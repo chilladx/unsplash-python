@@ -20,8 +20,8 @@ class Collections(object):
 
         return Rest(self._application_id).get(url, params)
 
-    def list_curated_collections(self, page=1, per_page=10):
-        url = '/collections/curated'
+    def list_featured_collections(self, page=1, per_page=10):
+        url = '/collections/featured'
 
         params = {
             'page': page,
@@ -30,8 +30,8 @@ class Collections(object):
 
         return Rest(self._application_id).get(url, params)
 
-    def list_featured_collections(self, page=1, per_page=10):
-        url = '/collections/featured'
+    def list_curated_collections(self, page=1, per_page=10):
+        url = '/collections/curated'
 
         params = {
             'page': page,
@@ -69,6 +69,10 @@ class Collections(object):
         }
 
         return Rest(self._application_id).get(url, params)
+
+    def list_collections_related_collections(self, id):
+        # Work in progress!
+        return None
 
     def create_collection(self, title, description=None, private=False):
         # Work in progress
