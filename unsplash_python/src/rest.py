@@ -11,15 +11,10 @@ logger = logging.getLogger('unsplash-python')
 
 
 class Rest(object):
-    def __init__(self, application_id=None):
+    def __init__(self, application_id=None, bearer_token=None):
         self._application_id = application_id
+        self._bearer_token = bearer_token
         self._api_url = 'https://api.unsplash.com'
-
-    def _get_header(self):
-        return {
-            'Authorization': 'Bearer %s' % '',
-            'Accept-Version': 'v1'
-        }
 
     def get(self, url, params={}):
         json = None
@@ -27,7 +22,6 @@ class Rest(object):
 
         if self._application_id:
             params['client_id'] = self._application_id
-
 
         url = '%s%s' % (self._api_url, url)
 
@@ -40,6 +34,20 @@ class Rest(object):
         return json
 
     def put(self, url, params={}):
-        # TODO
+        json = None
+        params = { key: value for key, value in params.items() if value }
+        
+        headers = {
+            'Authorization': 'Bearer %s' % self._bearer_token,
+            'Accept-Version': 'v1'
+        }
 
-        return False
+        url = '%s%s' % (self._api_url, url)
+
+        try:
+            response = requests.put(url, params=params, headers=headers)
+            json = response.json()
+        except Exception as e:
+            logger.error('Connection error %s' %e)
+
+        return json
