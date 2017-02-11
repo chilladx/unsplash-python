@@ -1,64 +1,69 @@
-"""
-    GitHub: https://github.com/michael-hacker/unsplash-python
-    Author: Michael Hacker <mh@superchic.at>
-"""
+# A unofficial Python wrapper for the Unsplash API.
+#
+# GitHub: https://github.com/michael-hacker/unsplash-python
+# Author: Michael Hacker <mh@superchic.at>
 
 import logging
-import json
 
-from urllib.error   import URLError, HTTPError
-from urllib.parse   import urlencode
-from urllib.request import urlopen
+import requests
 
 logger = logging.getLogger('unsplash-python')
 
 
 class Rest(object):
-    def __init__(self, application_id = None):
+    def __init__(self, application_id=None, access_token=None):
         self._application_id = application_id
-        self._api_url        = 'https://api.unsplash.com'
+        self._access_token = access_token
+        self._api_url = 'https://api.unsplash.com'
 
-    def _request(self, url, method, query = None):
-        json_data = None
-        url       = '%s%s' % (self._api_url, url)
+    def get(self, url, params={}):
+        result = None
+        params = { key: value for key, value in params.items() if value }
 
         if self._application_id:
-            url += '?client_id=%s' % self._application_id
+            params['client_id'] = self._application_id
 
-        if query:
-            query = { key: value for key, value in query.items() if value }
-            url += urlencode(query)
-
-        #headers = self._get_auth_header()
-        #headers.update(query)
+        url = '%s%s' % (self._api_url, url)
 
         try:
-            with urlopen(url) as response:
-                body = response.read()
+            response = requests.get(url, params=params)
+        except Exception as e:
+            logger.error('Connection error %s' %e)
 
-            json_data = json.loads(body.decode('utf-8'))
+        try:
+            if response.status_code == 200:
+                result = response.json()
+            else:
+                errors = response.json().get('errors')
+                logger.error('Connection error %s' %errors)
+        except ValueError:
+            result = None
 
-        except HTTPError as error:
-            logger.error(
-                'HTTP status {}'.format(error.code)
-            )
+        return result
+
+    def put(self, url, params={}):
+        result = None
+        params = { key: value for key, value in params.items() if value }
         
-        except URLError as error:
-            logger.error(
-                'Reason: {}'.format(error.reason)
-            )
+        headers = {
+            'Authorization': 'Bearer %s' % self._access_token,
+            'Accept-Version': 'v1'
+        }
 
-        return json_data
+        url = '%s%s' % (self._api_url, url)
 
-    # def _get_auth_header(self):
-    #     return {
-    #         'Authorization' : 'Bearer %s' % ''
-    #     }
+        try:
+            response = requests.put(url, params=params, headers=headers)
+        except Exception as e:
+            logger.error('Connection error %s' %e)
 
-    def get(self, url, query = None):
-        return self._request(url, 'get', query = query)
+        try:
+            if response.status_code == 200:
+                result = response.json()
+            else:
+                errors = response.json().get('errors')
+                logger.error('Connection error %s' %errors)
+        except ValueError:
+            result = None
 
-    def put(self, url, query = {}):
-        # TODO
-
-        return False
+        return result

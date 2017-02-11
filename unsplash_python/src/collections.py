@@ -1,7 +1,7 @@
-"""
-    GitHub: https://github.com/michael-hacker/unsplash-python
-    Author: Michael Hacker <mh@superchic.at>
-"""
+# A unofficial Python wrapper for the Unsplash API.
+#
+# GitHub: https://github.com/michael-hacker/unsplash-python
+# Author: Michael Hacker <mh@superchic.at>
 
 from .rest import Rest
 
@@ -9,37 +9,36 @@ from .rest import Rest
 class Collections(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
-        self._api_url        = settings['api_url']
 
-    def list_collections(self, page = 1, per_page = 10):
+    def list_collections(self, page=1, per_page=10):
         url = '/collections'
 
-        query = {
-            'page'     : page,
-            'per_page' : per_page
+        params = {
+            'page': page,
+            'per_page': per_page
         }
 
-        return Rest(self._application_id).get(url, query)
+        return Rest(self._application_id).get(url, params)
 
-    def list_curated_collections(self, page = 1, per_page = 10):
-        url = '/collections/curated'
-
-        query = {
-            'page'     : page,
-            'per_page' : per_page
-        }
-
-        return Rest(self._application_id).get(url, query)
-
-    def list_featured_collections(self, page = 1, per_page = 10):
+    def list_featured_collections(self, page=1, per_page=10):
         url = '/collections/featured'
 
-        query = {
-            'page'     : page,
-            'per_page' : per_page
+        params = {
+            'page': page,
+            'per_page': per_page
         }
 
-        return Rest(self._application_id).get(url, query)
+        return Rest(self._application_id).get(url, params)
+
+    def list_curated_collections(self, page=1, per_page=10):
+        url = '/collections/curated'
+
+        params = {
+            'page': page,
+            'per_page': per_page
+        }
+
+        return Rest(self._application_id).get(url, params)
 
     def get_collection(self, id):
         url = '/collections/%s' % str(id)
@@ -51,21 +50,35 @@ class Collections(object):
 
         return Rest(self._application_id).get(url)
 
-    def get_collection_photos(self, id, page = 1, per_page = 10):
+    def get_collection_photos(self, id, page=1, per_page=10):
         url = '/collections/%s/photos' % str(id)
 
-        return Rest(self._application_id).get(url)
+        params = {
+            'page': page,
+            'per_page': per_page
+        }
 
-    def get_curated_collection_photos(self, id, page = 1, per_page = 10):
+        return Rest(self._application_id).get(url, params)
+
+    def get_curated_collection_photos(self, id, page=1, per_page=10):
         url = '/collections/curated/%s/photos' % str(id)
 
-        return Rest(self._application_id).get(url)
+        params = {
+            'page': page,
+            'per_page': per_page
+        }
 
-    def create_collection(self, title, description = None, private = False):
+        return Rest(self._application_id).get(url, params)
+
+    def list_collections_related_collections(self, id):
+        # Work in progress!
+        return None
+
+    def create_collection(self, title, description=None, private=False):
         # Work in progress
         return None
 
-    def update_collection(self, title, description = None, private = False):
+    def update_collection(self, title, description=None, private=False):
         # Work in progress
         return None
 

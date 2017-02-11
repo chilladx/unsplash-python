@@ -20,9 +20,9 @@ To create an instance, simply provide an _Object_ with your `application_id`, `s
 from unsplash_python.unsplash import Unsplash
 
 unsplash = Unsplash({
-    'application_id' : '{APP_ID}',
-    'secret'         : '{APP_SECRET}',
-    'callback_url'   : '{CALLBACK_URL}'
+    'application_id': '{application_id}',
+    'secret': '{secret}',
+    'callback_url': '{callback_url}'
 })
 ```
 
@@ -91,7 +91,7 @@ _N/A_
 
 __Example__
 ```python
-current_user_profile = unsplash.current_user().profile()
+unsplash.current_user().profile()
 ```
 ---
 
@@ -107,14 +107,11 @@ __Arguments__
 __Example__
 ```python
 unsplash.current_user().update_profile({
-    'username'           : 'john_doe',
-    'first_name'         : 'John',
-    'last_name'          : 'Doe',
-    'email'              : 'john.doe@unkn.own',
-    'url'                : 'https://www.superbox.one',
-    'location'           : 'Unknown',
-    'bio'                : '',
-    'instagram_username' : 'john_doe'
+    'username': 'michael_hacker',
+    'first_name': 'Michael',
+    'last_name': 'Hacker',
+    'url': 'https://www.superbox.one',
+    'location': 'Linz'
 })
 ```
 ---
@@ -132,8 +129,8 @@ __Arguments__
 
 __Example__
 ```python
-users_profile = unsplash.users().profile(
-    username = 'michael_hacker'
+unsplash.users().profile(
+    username='michael_hacker'
 )
 ```
 ---
@@ -152,9 +149,9 @@ __Arguments__
 
 __Example__
 ```python
-users_photos = unsplash.users().photos(
-    username = 'naoufal',
-    order_by = 'popular'
+unsplash.users().photos(
+    username='michael_hacker',
+    order_by='popular'
 )
 ```
 ---
@@ -173,11 +170,11 @@ __Arguments__
 
 __Example__
 ```python
-users_likes = unsplash.users().likes(
-    username = 'naoufal',
-    page     = 2,
-    per_page = 15,
-    order_by = 'popular'
+unsplash.users().likes(
+    username 'michael_hacker',
+    page =2,
+    per_page=15,
+    order_by='popular'
 )
 ```
 ---
@@ -195,10 +192,10 @@ __Arguments__
 
 __Example__
 ```python
-users_collections = unsplash.users().collections(
-    username = 'naoufal',
-    page     = 2,
-    per_page = 15
+unsplash.users().collections(
+    username='michael_hacker',
+    page=2,
+    per_page=15
 )
 ```
 ---
@@ -218,10 +215,10 @@ __Arguments__
 
 __Example__
 ```python
-photos = unsplash.photos().list_photos(
-    page     = 2,
-    per_page = 15,
-    order_by = 'popular'
+unsplash.photos().list_photos(
+    page=2,
+    per_page=15,
+    order_by='popular'
 )
 ```
 ---
@@ -239,10 +236,10 @@ __Arguments__
 
 __Example__
 ```python
-curated_photos = unsplash.photos().list_curated_photos(
-    page     = 2,
-    per_page = 15,
-    order_by = 'popular'
+unsplash.photos().list_curated_photos(
+    page=2,
+    per_page=15,
+    order_by='popular'
 )
 ```
 ---
@@ -261,11 +258,11 @@ __Arguments__
 
 __Example__
 ```python
-photos = unsplash.photos().search_photos(
-    query    = 'cats',
-    category = [11, 88],
-    page     = 1
-    per_page = 15
+unsplash.photos().search_photos(
+    query='lisboa',
+    category=[11, 88],
+    page=1
+    per_page=15
 )
 ```
 ---
@@ -284,11 +281,11 @@ __Arguments__
 
 __Example__
 ```python
-photo = unsplash.photos().get_photo(
-    id        = '6r1_ZnnI5m8',
-    width     = 500,
-    height    = 500,
-    rectangle = [0, 0, 200, 200]
+unsplash.photos().get_photo(
+    id='3PmwYw2uErY',
+    width=500,
+    height=500,
+    rectangle=[0, 0, 200, 200]
 )
 ```
 ---
@@ -304,8 +301,8 @@ __Arguments__
 
 __Example__
 ```python
-photo_stats = unsplash.photos().get_photo_stats(
-    id = '6r1_ZnnI5m8'
+unsplash.photos().get_photo_stats(
+    id='3PmwYw2uErY'
 )
 ```
 ---
@@ -317,19 +314,18 @@ __Arguments__
 
 | Argument | Type | Opt/Required |
 |---|---|---|
+|__`collections`__|_Array<number>_|Optional|
+|__`featured`__|_boolean_|Optional|
+|__`username`__|_string_|Optional|
+|__`query`__|_string_|Optional|
 |__`width`__|_number_|Optional|
 |__`height`__|_number_|Optional|
-|__`query`__|_string_|Optional|
-|__`username`__|_string_|Optional|
-|__`featured`__|_boolean_|Optional|
-|__`collections`__|_Array<number>_|Optional|
 
 __Example__
 ```python
-random_photo = unsplash.photos().get_random_photo(
-    width    = 500,
-    height   = 500,
-    username = 'michael_hacker'
+unsplash.photos().get_random_photo(
+    username='michael_hacker',
+    width=500
 )
 ```
 ---
@@ -369,10 +365,10 @@ __Arguments__
 
 __Example__
 ```python
-list_collections = unsplash.collections().list_collections(
-    page     = 1,
-    per_page = 10,
-    order_by = 'popular'
+unsplash.collections().list_collections(
+    page=1,
+    per_page=10,
+    order_by='popular'
 )
 ```
 ---
@@ -389,9 +385,9 @@ __Arguments__
 
 __Example__
 ```python
-list_curated_collections = unsplash.collections().list_curated_collections(
-    page     = 1,
-    per_page = 10,
+unsplash.collections().list_curated_collections(
+    page=1,
+    per_page=10,
 )
 ```
 ---
@@ -408,9 +404,9 @@ __Arguments__
 
 __Example__
 ```python
-list_featured_collections = unsplash.collections().list_featured_collections(
-    page     = 1,
-    per_page = 10,
+unsplash.collections().list_featured_collections(
+    page=1,
+    per_page=10,
 )
 ```
 ---
@@ -427,8 +423,8 @@ __Arguments__
 
 __Example__
 ```python
-collection = unsplas()h.collections().get_collection(
-    id = 123456
+unsplash().collections().get_collection(
+    id=123456
 )
 ```
 ---
@@ -445,8 +441,8 @@ __Arguments__
 
 __Example__
 ```python
-curated_collection = unsplash().collections().get_curated_collection(
-    id = 134
+unsplash().collections().get_curated_collection(
+    id=134
 )
 ```
 ---
@@ -465,10 +461,10 @@ __Arguments__
 
 __Example__
 ```python
-collection_photos = unsplash().collections().get_collection_photos(
-    id       = 123456,
-    page     = 1,
-    per_page = 10
+unsplash().collections().get_collection_photos(
+    id=123456,
+    page=1,
+    per_page=10
 )
 ```
 ---
@@ -488,9 +484,9 @@ __Arguments__
 __Example__
 ```python
 unsplash().collections().get_curated_collection_photos(
-    id       = 88,
-    page     = 1,
-    per_page = 10
+    id=88,
+    page=1,
+    per_page=10
 )
 ```
 ---
