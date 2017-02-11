@@ -1,6 +1,7 @@
 ._*
 .DS_Store
 **/__pycache__
+.coverage
 *.egg-info
 .cache/*
 .eggs/*
