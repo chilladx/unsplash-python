@@ -1,6 +1,7 @@
 language: python
 
-cache: pip
+cache: 
+  - pip
   directories:
     - 'tests/vcr'
 
