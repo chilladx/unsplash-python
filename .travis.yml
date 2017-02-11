@@ -10,6 +10,8 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install --upgrade codecov
+  - pip install --upgrade pytest-cov
   - pip install --upgrade pytest-pep8
   - pip install --upgrade vcrpy
   - pip install --upgrade -e .
@@ -19,4 +21,4 @@ notifications:
 
 script:
   - py.test --pep8
-  - py.test
+  - py.test --cov unsplash_python --cov-report term-missing --cov-report xml
