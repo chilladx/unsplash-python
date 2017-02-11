@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/unsplash-python.svg)](https://badge.fury.io/py/unsplash-python) [![PyPI pyversions](https://img.shields.io/pypi/pyversions/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/) 
+[![PyPI version](https://badge.fury.io/py/unsplash-python.svg)](https://badge.fury.io/py/unsplash-python) [![PyPI pyversions](https://img.shields.io/pypi/pyversions/unsplash-python.svg)](https://pypi.python.org/pypi/unsplash-python/) 
 [![Build Status](https://travis-ci.org/michael-hacker/unsplash-python.svg?branch=master)](https://travis-ci.org/michael-hacker/unsplash-python) [![codecov](https://codecov.io/gh/michael-hacker/unsplash-python/branch/master/graph/badge.svg)](https://codecov.io/gh/michael-hacker/unsplash-python) [![Code Climate](https://codeclimate.com/github/michael-hacker/unsplash-python/badges/gpa.svg)](https://codeclimate.com/github/michael-hacker/unsplash-python)
 
 # unsplash-python
