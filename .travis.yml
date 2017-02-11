@@ -2,7 +2,7 @@ language: python
 
 cache: 
   - pip
-  directories:
+  - directories:
     - 'tests/vcr'
 
 python:
