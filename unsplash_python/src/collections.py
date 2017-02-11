@@ -50,8 +50,11 @@ class Collections(object):
 
         return Rest(self._application_id).get(url)
 
-    def get_collection_photos(self, id, page=1, per_page=10):
-        url = '/collections/%s/photos' % str(id)
+    def get_collection_photos(self, id, page=1, per_page=10, curated = False):
+        if curated:
+            url = '/collections/curated/%s/photos' % str(id)
+        else:
+            url = '/collections/%s/photos' % str(id)
 
         params = {
             'page': page,
@@ -61,14 +64,12 @@ class Collections(object):
         return Rest(self._application_id).get(url, params)
 
     def get_curated_collection_photos(self, id, page=1, per_page=10):
-        url = '/collections/curated/%s/photos' % str(id)
-
-        params = {
-            'page': page,
-            'per_page': per_page
-        }
-
-        return Rest(self._application_id).get(url, params)
+        return self.get_collection_photos(
+            id,
+            page=page,
+            per_page=per_page,
+            curated = True
+        )
 
     def list_collections_related_collections(self, id):
         # Work in progress!
