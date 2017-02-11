@@ -19,7 +19,7 @@ class CurrentUsers(UnsplashTestCase):
         self.assertIsNotNone(response)
         self.assertIsInstance(response, dict)
 
-    @vcr.use_cassette(vcr_path + 'list_photos.json')
+    @vcr.use_cassette(vcr_path + 'current_users.json')
     def test_update_profile(self):
         response = self.unsplash.current_users(
             access_token=self._access_token
