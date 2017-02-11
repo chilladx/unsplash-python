@@ -7,8 +7,6 @@ import logging
 
 import requests
 
-logger = logging.getLogger('unsplash-python')
-
 
 class Rest(object):
     def __init__(self, application_id=None, access_token=None):
@@ -33,14 +31,14 @@ class Rest(object):
             elif methode == 'get':
                 response = requests.get(url, params=params)
         except Exception as errors:
-            logger.error('Connection error %s' % errors)
+            logging.error('Connection error %s' % errors)
 
         try:
             if response.status_code == 200:
                 result = response.json()
             else:
                 errors = response.json().get('errors')
-                logger.error('Connection error %s' % errors)
+                logging.error('Connection error %s' % errors)
         except ValueError:
             result = None
 
