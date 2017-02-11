@@ -18,6 +18,10 @@ class Rest(object):
 
     def _request(self, methode, url, params, headers={}):
         result = None
+        params = {key: value for key, value in params.items() if value}
+
+        if self._application_id:
+            params['client_id'] = self._application_id
 
         try:
             if methode == 'put':
@@ -39,18 +43,11 @@ class Rest(object):
         return result
 
     def get(self, url, params={}):
-        params = {key: value for key, value in params.items() if value}
-
-        if self._application_id:
-            params['client_id'] = self._application_id
-
         url = '%s%s' % (self._api_url, url)
 
         return self._request('get', url, params=params)
 
     def put(self, url, params={}):
-        params = {key: value for key, value in params.items() if value}
-
         headers = {
             'Authorization': 'Bearer %s' % self._access_token,
             'Accept-Version': 'v1'
