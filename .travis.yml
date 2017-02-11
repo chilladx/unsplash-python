@@ -15,4 +15,3 @@ notifications:
 
 script:
   - py.test --pep8
-  - python setup.py test
