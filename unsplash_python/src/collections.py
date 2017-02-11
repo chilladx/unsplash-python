@@ -50,7 +50,7 @@ class Collections(object):
 
         return Rest(self._application_id).get(url)
 
-    def get_collection_photos(self, id, page=1, per_page=10, curated = False):
+    def get_collection_photos(self, id, page=1, per_page=10, curated=False):
         if curated:
             url = '/collections/curated/%s/photos' % str(id)
         else:
@@ -68,7 +68,7 @@ class Collections(object):
             id,
             page=page,
             per_page=per_page,
-            curated = True
+            curated=True
         )
 
     def list_collections_related_collections(self, id):
