@@ -16,6 +16,20 @@ class Rest(object):
         self._access_token = access_token
         self._api_url = 'https://api.unsplash.com'
 
+    def _get_result(self, response):
+        result = None
+
+        try:
+            if response.status_code == 200:
+                result = response.json()
+            else:
+                errors = response.json().get('errors')
+                logger.error('Connection error %s' % errors)
+        except ValueError:
+            result = None
+
+        return result
+
     def get(self, url, params={}):
         result = None
         params = {key: value for key, value in params.items() if value}
@@ -30,16 +44,7 @@ class Rest(object):
         except Exception as errors:
             logger.error('Connection error %s' % errors)
 
-        try:
-            if response.status_code == 200:
-                result = response.json()
-            else:
-                errors = response.json().get('errors')
-                logger.error('Connection error %s' % errors)
-        except ValueError:
-            result = None
-
-        return result
+        return self._get_result(response)
 
     def put(self, url, params={}):
         result = None
@@ -57,13 +62,4 @@ class Rest(object):
         except Exception as errors:
             logger.error('Connection error %s' % errors)
 
-        try:
-            if response.status_code == 200:
-                result = response.json()
-            else:
-                errors = response.json().get('errors')
-                logger.error('Connection error %s' % errors)
-        except ValueError:
-            result = None
-
-        return result
+        return self._get_result(response)
