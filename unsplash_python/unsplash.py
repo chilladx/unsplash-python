@@ -3,7 +3,6 @@
 # GitHub: https://github.com/michael-hacker/unsplash-python
 # Author: Michael Hacker <mh@superchic.at>
 
-from .src.rest import Rest
 from .src.auth import Auth
 from .src.users import CurrentUsers, Users
 from .src.photos import Photos
