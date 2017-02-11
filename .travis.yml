@@ -8,6 +8,7 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install --upgrade pytest-pep8
+  - pip install --upgrade vcrpy
   - pip install --upgrade -e .
 
 notifications:
@@ -15,3 +16,4 @@ notifications:
 
 script:
   - py.test --pep8
+  - py.test
