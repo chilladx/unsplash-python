@@ -7,9 +7,12 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install --upgrade pytest-pep8
   - pip install --upgrade -e .
 
 notifications:
   email: false
 
-script: python setup.py test
+script:
+  - py.test --pep8
+  - python setup.py test
