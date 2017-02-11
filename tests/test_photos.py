@@ -20,9 +20,9 @@ class Photos(UnsplashTestCase):
         self.assertIsInstance(response[0], dict)
         self.assertEqual(len(response), 2)
 
-    @vcr.use_cassette(vcr_path + 'list_photos.json')
+    @vcr.use_cassette(vcr_path + 'list_curated_photos.json')
     def test_list_curated_photos(self):
-        response = self.unsplash.photos().list_photos(
+        response = self.unsplash.photos().list_curated_photos(
             per_page=2
         )
         self.assertIsInstance(response, list)
