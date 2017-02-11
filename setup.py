@@ -1,3 +1,4 @@
+import unittest
 import uuid
 
 from pip.req import parse_requirements
@@ -5,6 +6,11 @@ from setuptools import setup, find_packages
 
 install_requirements = parse_requirements('requirements.txt', session=uuid.uuid1())
 requirements = [str(req.req) for req in install_requirements]
+
+def test_suite():
+    test_loader = unittest.defaultTestLoader
+    test_suite = test_loader.discover('tests', pattern='test_*.py')
+    return test_suite
 
 setup(
     name='unsplash-python',
@@ -23,5 +29,6 @@ setup(
     ],
     keywords='api development unsplash',
     install_requires=requirements,
+    test_suite='setup.test_suite',
     zip_safe=True
 )
