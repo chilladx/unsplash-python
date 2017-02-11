@@ -42,7 +42,7 @@ class Photos(UnsplashTestCase):
     @vcr.use_cassette(vcr_path + 'get_photo.json')
     def test_get_photo(self):
         response = self.unsplash.photos().get_photo(
-            id='3PmwYw2uErY'
+            photo_id='3PmwYw2uErY'
         )
         self.assertIsInstance(response, dict)
         self.assertEqual(response.get('id'), '3PmwYw2uErY')
@@ -50,7 +50,7 @@ class Photos(UnsplashTestCase):
     @vcr.use_cassette(vcr_path + 'get_photo_stats.json')
     def test_get_photo_stats(self):
         response = self.unsplash.photos().get_photo_stats(
-            id='3PmwYw2uErY'
+            photo_id='3PmwYw2uErY'
         )
         self.assertIsInstance(response, dict)
 

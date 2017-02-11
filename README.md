@@ -282,7 +282,7 @@ __Arguments__
 __Example__
 ```python
 unsplash.photos().get_photo(
-    id='3PmwYw2uErY',
+    photo_id='3PmwYw2uErY',
     width=500,
     height=500,
     rectangle=[0, 0, 200, 200]
@@ -302,7 +302,7 @@ __Arguments__
 __Example__
 ```python
 unsplash.photos().get_photo_stats(
-    id='3PmwYw2uErY'
+    photo_id='3PmwYw2uErY'
 )
 ```
 ---
@@ -424,7 +424,7 @@ __Arguments__
 __Example__
 ```python
 unsplash().collections().get_collection(
-    id=123456
+    collection_id=123456
 )
 ```
 ---
@@ -442,7 +442,7 @@ __Arguments__
 __Example__
 ```python
 unsplash().collections().get_curated_collection(
-    id=134
+    collection_id=134
 )
 ```
 ---
@@ -462,7 +462,7 @@ __Arguments__
 __Example__
 ```python
 unsplash().collections().get_collection_photos(
-    id=123456,
+    collection_id=123456,
     page=1,
     per_page=10
 )
@@ -484,7 +484,7 @@ __Arguments__
 __Example__
 ```python
 unsplash().collections().get_curated_collection_photos(
-    id=88,
+    collection_id=88,
     page=1,
     per_page=10
 )
