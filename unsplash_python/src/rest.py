@@ -16,8 +16,16 @@ class Rest(object):
         self._access_token = access_token
         self._api_url = 'https://api.unsplash.com'
 
-    def _get_result(self, response):
+    def _request(self, methode, url, params, headers={}):
         result = None
+
+        try:
+            if methode == 'put':
+                response = requests.put(url, params=params, headers=headers)
+            elif methode == 'get':
+                response = requests.get(url, params=params)
+        except Exception as errors:
+            logger.error('Connection error %s' % errors)
 
         try:
             if response.status_code == 200:
@@ -31,7 +39,6 @@ class Rest(object):
         return result
 
     def get(self, url, params={}):
-        result = None
         params = {key: value for key, value in params.items() if value}
 
         if self._application_id:
@@ -39,15 +46,9 @@ class Rest(object):
 
         url = '%s%s' % (self._api_url, url)
 
-        try:
-            response = requests.get(url, params=params)
-        except Exception as errors:
-            logger.error('Connection error %s' % errors)
-
-        return self._get_result(response)
+        return self._request('get', url, params=params)
 
     def put(self, url, params={}):
-        result = None
         params = {key: value for key, value in params.items() if value}
 
         headers = {
@@ -57,9 +58,4 @@ class Rest(object):
 
         url = '%s%s' % (self._api_url, url)
 
-        try:
-            response = requests.put(url, params=params, headers=headers)
-        except Exception as errors:
-            logger.error('Connection error %s' % errors)
-
-        return self._get_result(response)
+        return self._request('put', url, params=params, headers=headers)
