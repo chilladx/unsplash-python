@@ -7,3 +7,5 @@ install: pip install -r requirements.txt
 
 notifications:
   email: false
+
+script: py.test
