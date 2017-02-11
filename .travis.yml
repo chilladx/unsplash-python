@@ -25,3 +25,13 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+
+deploy:
+  provider: pypi
+  user: superbox
+  password:
+    secure: 'Gn113u0ALxUdk0WmpajGKt3M/zZZcIo9sPboAyI3Mngl/mq8am6AwjwGAMKMbPBZamQoVzGTermKHIpSAfOqqP/G156RZbbQbKv6yGJUa8TjgaUTh2rbLHI2KYzSk+QPAJfzm6W4JojdDRgAL9AKrLBWU1QpplVT4/d9gt8nGonV9Md+W6AfXq1zUetN01lIcTZiNrGlgDAwsKqK6M3Y6yenjjOmUBebwPx79VWvIEh2ZWHajNd3S46RVYi79yookubUwlTDW9t0bhYaUWLUuLU9V9DkXXgSUbIapizxllAw8go2ZsBcfvSQ3tDCHDlg6FYV3yHj0Xvik+QREsV3ZW+ZW+jzur9Uw/4uX7cmVExF99kCeVXmfqOmjLYA1LJx2rg3ELq69mXA5PPxb6xilxZWGPJQgiRQ+mfydUZVLpOYh5O8QHemWycllfsbLFg7rIxAM+W0pcN2r/1dZGnJhm++3Fayazy9n9Tz/OjJ9fsjORER3uDnbSK/EBbxOhbkBRa+yn5qmA4ylyMwthCclBV9nHjPLjEwf7W6ur2f1HJCMJ1pzz16RFyn1L/CKA96X9TYvnM1YLpmkwcJYUAQdEEMGY7Y3paq+RCTYqLDAel8YQhR9tBsLBT1w5kNggKdewHOeBFjW5cIg1i4/7nNjnXmt9GBG/C2/9Ns1QaLzos='
+  distributions: 'bdist_wheel'
+  on:
+    tags: true
+    branch: master
