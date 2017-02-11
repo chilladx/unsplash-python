@@ -40,21 +40,22 @@ class Collections(object):
 
         return Rest(self._application_id).get(url, params)
 
-    def get_collection(self, id):
-        url = '/collections/%s' % str(id)
+    def get_collection(self, collection_id):
+        url = '/collections/%s' % str(collection_id)
 
         return Rest(self._application_id).get(url)
 
-    def get_curated_collection(self, id):
-        url = '/collections/curated/%s' % str(id)
+    def get_curated_collection(self, collection_id):
+        url = '/collections/curated/%s' % str(collection_id)
 
         return Rest(self._application_id).get(url)
 
-    def get_collection_photos(self, id, page=1, per_page=10, curated=False):
+    def get_collection_photos(self, collection_id, page=1, per_page=10,
+                              curated=False):
         if curated:
-            url = '/collections/curated/%s/photos' % str(id)
+            url = '/collections/curated/%s/photos' % str(collection_id)
         else:
-            url = '/collections/%s/photos' % str(id)
+            url = '/collections/%s/photos' % str(collection_id)
 
         params = {
             'page': page,
@@ -71,7 +72,7 @@ class Collections(object):
             curated=True
         )
 
-    def list_collections_related_collections(self, id):
+    def list_collections_related_collections(self, collection_id):
         # Work in progress!
         return None
 
@@ -83,7 +84,7 @@ class Collections(object):
         # Work in progress
         return None
 
-    def delete_collection(self, id):
+    def delete_collection(self, collection_id):
         # Work in progress
         return None
 
