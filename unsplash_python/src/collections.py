@@ -64,7 +64,8 @@ class Collections(object):
 
         return Rest(self._application_id).get(url, params)
 
-    def get_curated_collection_photos(self, collection_id, page=1, per_page=10):
+    def get_curated_collection_photos(self, collection_id, page=1,
+                                      per_page=10):
         return self.get_collection_photos(
             collection_id,
             page=page,
