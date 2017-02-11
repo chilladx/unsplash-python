@@ -16,9 +16,13 @@ class Rest(object):
         self._access_token = access_token
         self._api_url = 'https://api.unsplash.com'
 
-    def _request(self, methode, url, params, headers={}):
+    def _request(self, methode, url, params, headers=None):
         result = None
-        params = {key: value for key, value in params.items() if value}
+
+        if params:
+            params = {key: value for key, value in params.items() if value}
+        else:
+            params = {}
 
         if self._application_id:
             params['client_id'] = self._application_id
@@ -42,13 +46,14 @@ class Rest(object):
 
         return result
 
-    def get(self, url, params={}):
+    def get(self, url, params=None):
         url = '%s%s' % (self._api_url, url)
 
         return self._request('get', url, params=params)
 
-    def put(self, url, params={}):
+    def put(self, url, params=None):
         headers = {
+            'user-agent': 'unsplash-python-wrapper',
             'Authorization': 'Bearer %s' % self._access_token,
             'Accept-Version': 'v1'
         }
