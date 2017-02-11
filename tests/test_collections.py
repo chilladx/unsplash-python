@@ -34,20 +34,20 @@ class Collections(UnsplashTestCase):
 
     def test_get_collection(self):
         response = self.unsplash.collections().get_collection(
-            id='446398'
+            id=446398
         )
         self.assertIsInstance(response, dict)
-        self.assertEqual(response.get('id'), '446398')
+        self.assertEqual(response.get('id'), 446398)
 
     def test_get_curated_collection(self):
         response = self.unsplash.collections().get_curated_collection(
-            id='134'
+            id=134
         )
         self.assertIsInstance(response, dict)
 
     def test_get_collection_photos(self):
         response = self.unsplash.collections().get_collection_photos(
-            id='446398',
+            id=446398,
             per_page=2
         )
         self.assertIsInstance(response, list)
@@ -56,7 +56,7 @@ class Collections(UnsplashTestCase):
 
     def test_get_curated_collection_photos(self):
         response = self.unsplash.collections().get_curated_collection_photos(
-            id='134'
+            id=134
         )
         self.assertIsInstance(response, list)
         self.assertIsInstance(response[0], dict)
