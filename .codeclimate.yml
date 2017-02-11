@@ -9,7 +9,7 @@ engines:
           mass_threshold: 100
 
   fixme:
-    enabled: false
+    enabled: true
     exclude_paths:
       - "tests/"
 
