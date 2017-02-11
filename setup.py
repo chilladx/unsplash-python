@@ -17,7 +17,7 @@ def test_suite():
 
 setup(
     name='unsplash-python',
-    version='1.0.0a7',
+    version='1.0.0a8',
     packages=['unsplash_python', 'unsplash_python.src'],
     description='A Python wrapper for the Unsplash API',
     url='https://github.com/michael-hacker/unsplash-python',
