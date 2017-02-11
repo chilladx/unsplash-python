@@ -5,7 +5,9 @@ cache: pip
 python:
   - '3.5'
 
-install: pip install -r requirements.txt
+install:
+  - pip install -r requirements.txt
+  - pip install --upgrade -e .
 
 notifications:
   email: false
