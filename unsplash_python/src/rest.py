@@ -18,7 +18,7 @@ class Rest(object):
 
     def get(self, url, params={}):
         result = None
-        params = { key: value for key, value in params.items() if value }
+        params = {key: value for key, value in params.items() if value}
 
         if self._application_id:
             params['client_id'] = self._application_id
@@ -27,15 +27,15 @@ class Rest(object):
 
         try:
             response = requests.get(url, params=params)
-        except Exception as e:
-            logger.error('Connection error %s' %e)
+        except Exception as errors:
+            logger.error('Connection error %s' % errors)
 
         try:
             if response.status_code == 200:
                 result = response.json()
             else:
                 errors = response.json().get('errors')
-                logger.error('Connection error %s' %errors)
+                logger.error('Connection error %s' % errors)
         except ValueError:
             result = None
 
@@ -43,8 +43,8 @@ class Rest(object):
 
     def put(self, url, params={}):
         result = None
-        params = { key: value for key, value in params.items() if value }
-        
+        params = {key: value for key, value in params.items() if value}
+
         headers = {
             'Authorization': 'Bearer %s' % self._access_token,
             'Accept-Version': 'v1'
@@ -54,15 +54,15 @@ class Rest(object):
 
         try:
             response = requests.put(url, params=params, headers=headers)
-        except Exception as e:
-            logger.error('Connection error %s' %e)
+        except Exception as errors:
+            logger.error('Connection error %s' % errors)
 
         try:
             if response.status_code == 200:
                 result = response.json()
             else:
                 errors = response.json().get('errors')
-                logger.error('Connection error %s' %errors)
+                logger.error('Connection error %s' % errors)
         except ValueError:
             result = None
 

@@ -23,7 +23,6 @@ class Collections(UnsplashTestCase):
     #     self.assertIsInstance(response[0], dict)
     #     self.assertEqual(len(response), 2)
 
-
     # def test_list_curated_collections(self):
     #     response = self.unsplash.collections().list_curated_collections(
     #         per_page=2
@@ -62,5 +61,5 @@ class Collections(UnsplashTestCase):
     #     self.assertIsInstance(response[0], dict)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

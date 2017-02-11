@@ -28,7 +28,7 @@ class CurrentUsers(object):
 class Users(object):
     def __init__(self, settings):
         self._application_id = settings['application_id']
- 
+
     def profile(self, username):
         url = '/users/%s' % username
 
