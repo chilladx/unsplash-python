@@ -41,7 +41,7 @@ class Collections(UnsplashTestCase):
     @vcr.use_cassette(vcr_path + 'get_collection.json')
     def test_get_collection(self):
         response = self.unsplash.collections().get_collection(
-            id=446398
+            collection_id=446398
         )
         self.assertIsInstance(response, dict)
         self.assertEqual(response.get('id'), 446398)
@@ -49,14 +49,14 @@ class Collections(UnsplashTestCase):
     @vcr.use_cassette(vcr_path + 'get_curated_collection.json')
     def test_get_curated_collection(self):
         response = self.unsplash.collections().get_curated_collection(
-            id=134
+            collection_id=134
         )
         self.assertIsInstance(response, dict)
 
     @vcr.use_cassette(vcr_path + 'get_collection_photos.json')
     def test_get_collection_photos(self):
         response = self.unsplash.collections().get_collection_photos(
-            id=446398,
+            collection_id=446398,
             per_page=2
         )
         self.assertIsInstance(response, list)
@@ -66,7 +66,7 @@ class Collections(UnsplashTestCase):
     @vcr.use_cassette(vcr_path + 'get_curated_collection_photos.json')
     def test_get_curated_collection_photos(self):
         response = self.unsplash.collections().get_curated_collection_photos(
-            id=134
+            collection_id=134
         )
         self.assertIsInstance(response, list)
         self.assertIsInstance(response[0], dict)
