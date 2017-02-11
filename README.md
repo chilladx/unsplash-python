@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/unsplash-python.svg)](https://badge.fury.io/py/unsplash-python) [![Build Status](https://travis-ci.org/michael-hacker/unsplash-python.svg?branch=master)](https://travis-ci.org/michael-hacker/unsplash-python)
+[![PyPI version](https://badge.fury.io/py/unsplash-python.svg)](https://badge.fury.io/py/unsplash-python) [![Build Status](https://travis-ci.org/michael-hacker/unsplash-python.svg?branch=master)](https://travis-ci.org/michael-hacker/unsplash-python) [![codecov](https://codecov.io/gh/michael-hacker/unsplash-python/branch/master/graph/badge.svg)](https://codecov.io/gh/michael-hacker/unsplash-python)
 
 # unsplash-python
 A unofficial Python client for the [Unsplash API](https://unsplash.com/developers).
