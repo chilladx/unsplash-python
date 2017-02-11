@@ -18,8 +18,6 @@ engines:
 
   pep8:
     enabled: true
-    exclude_paths:
-      - "tests/"
     checks:
       W391:
         enabled: false

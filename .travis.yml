@@ -12,7 +12,6 @@ install:
   - pip install -r requirements.txt
   - pip install --upgrade codecov
   - pip install --upgrade pytest-cov
-  - pip install --upgrade pytest-pep8
   - pip install --upgrade vcrpy
   - pip install --upgrade -e .
 
@@ -20,15 +19,10 @@ notifications:
   email: false
 
 script:
-  - py.test --pep8
   - py.test --cov unsplash_python --cov-report term-missing --cov-report xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
-
-addons:
-  code_climate:
-    repo_token: 2721a0eb57cc30648dae868433d67003878d53e00c6a4d1dbc44afe5e9c2807d
 
 deploy:
   provider: pypi
