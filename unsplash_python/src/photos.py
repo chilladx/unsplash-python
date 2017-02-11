@@ -43,8 +43,8 @@ class Photos(object):
 
         return Rest(self._application_id).get(url, params)
 
-    def get_photo(self, id, width=None, height=None, rectangle=None):
-        url = '/photos/%s' % id
+    def get_photo(self, photo_id, width=None, height=None, rectangle=None):
+        url = '/photos/%s' % photo_id
 
         params = {
             'w': width,
@@ -54,8 +54,8 @@ class Photos(object):
 
         return Rest(self._application_id).get(url, params)
 
-    def get_photo_stats(self, id):
-        url = '/photos/%s/stats' % id
+    def get_photo_stats(self, photo_id):
+        url = '/photos/%s/stats' % photo_id
 
         return Rest(self._application_id).get(url)
 
@@ -77,12 +77,12 @@ class Photos(object):
 
     def upload_photo(self, photo):
         # Work in progress!
-        return None
+        return photo
 
-    def like_photo(self, id):
+    def like_photo(self, photo_id):
         # Work in progress!
-        return None
+        return photo_id
 
-    def unlike_photo(self, id):
+    def unlike_photo(self, photo_id):
         # Work in progress!
-        return None
+        return photo_id
