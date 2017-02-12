@@ -52,6 +52,7 @@ class Collections(UnsplashTestCase):
             collection_id=134
         )
         self.assertIsInstance(response, dict)
+        self.assertEqual(response.get('id'), 134)
 
     @vcr.use_cassette(vcr_path + 'get_collection_photos.json')
     def test_get_collection_photos(self):

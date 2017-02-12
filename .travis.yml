@@ -22,7 +22,7 @@ notifications:
   email: false
 
 script:
-  - py.test --cov unsplash_python --cov-report term-missing --cov-report xml
+  - py.test -v --cov unsplash_python --cov-report term-missing --cov-report xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
