@@ -32,17 +32,19 @@ class Rest(object):
                 response = requests.put(url, params=params, headers=headers)
             elif methode == 'get':
                 response = requests.get(url, params=params)
+
+            try:
+                if response.status_code == 200:
+                    result = response.json()
+                else:
+                    errors = response.json().get('errors')
+                    logger.error('Connection error %s', errors)
+
+            except ValueError:
+                result = None
+
         except Exception as errors:
             logger.error('Connection error %s', errors)
-
-        try:
-            if response.status_code == 200:
-                result = response.json()
-            else:
-                errors = response.json().get('errors')
-                logger.error('Connection error %s', errors)
-        except ValueError:
-            result = None
 
         return result
 
