@@ -15,7 +15,9 @@ A unofficial Python client for the [Unsplash API](https://unsplash.com/developer
     $ pip install requests
 
 ## Usage
+
 ### Creating an instance
+
 To create an instance, simply provide an _Object_ with your `application_id`,
 `secret` and `callback_url`.
 
@@ -47,6 +49,8 @@ unsplash = Unsplash({
 
 
 <div id="authorization" />
+
+## Authorization
 
 ### auth().get_authentication_url(scopes)
 
@@ -92,6 +96,8 @@ access_token = unsplash.auth().user_authentication(code = '{OAUTH_CODE}')
 
 <div id="current-user" />
 
+## Current User
+
 ### current_user().profile()
 
 Get the user’s profile.
@@ -133,6 +139,8 @@ unsplash.current_user().update_profile({
 ---
 
 <div id="users" />
+
+## Users
 
 ### users().profile(username)
 
@@ -229,6 +237,8 @@ unsplash.users().collections(
 ---
 
 <div id="photos" />
+
+## Photos
 
 ### photos().list_photos(page, per_page, order_by)
 
@@ -401,6 +411,8 @@ Work in progress!
 ---
 
 <div id="collections" />
+
+## Collections
 
 ### collections().list_collections(page, per_page)
 
@@ -602,3 +614,5 @@ Work in progress!
 ---
 
 <div id="search" />
+
+## Search
