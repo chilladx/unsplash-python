@@ -7,7 +7,7 @@ from .src.auth import Auth
 from .src.users import CurrentUsers, Users
 from .src.photos import Photos
 from .src.collections import Collections
-
+from .src.search import Search
 
 class Unsplash(object):
     def __init__(self, settings):
@@ -34,3 +34,6 @@ class Unsplash(object):
 
     def collections(self):
         return Collections(self._settings)
+
+    def search(self):
+        return Search(self._settings)
