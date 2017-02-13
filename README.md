@@ -40,12 +40,12 @@ unsplash = Unsplash({
 ## Instance Methods
 
 - [Authorization](#authorization)
-- [Current User](https://github.com/michael-hacker/unsplash-python#current-user)
-- [Users](https://github.com/michael-hacker/unsplash-python#users)
-- [Photos](https://github.com/michael-hacker/unsplash-python#photos)
-- [Collections](https://github.com/michael-hacker/unsplash-python#collections)
-- [Search](https://github.com/michael-hacker/unsplash-python#searchallkeyword-page)
-- [Stats](https://github.com/michael-hacker/unsplash-python#stats)
+- [Current User](#current-user)
+- [Users](#users)
+- [Photos](#photos)
+- [Collections](#collections)
+- [Search](#searchallkeyword-page)
+- [Stats](#stats)
 
 ## Authorization
 
@@ -91,8 +91,6 @@ access_token = unsplash.auth().user_authentication(code = '{OAUTH_CODE}')
 
 ---
 
-<div id="current-user" />
-
 ## Current User
 
 ### current_user().profile()
@@ -134,8 +132,6 @@ unsplash.current_user().update_profile({
 ```
 
 ---
-
-<div id="users" />
 
 ## Users
 
@@ -232,8 +228,6 @@ unsplash.users().collections(
 ```
 
 ---
-
-<div id="photos" />
 
 ## Photos
 
@@ -406,8 +400,6 @@ Remove a user’s like of a photo.
 Work in progress!
 
 ---
-
-<div id="collections" />
 
 ## Collections
 
@@ -609,7 +601,5 @@ Remove a photo from one of the logged-in user’s collections. Requires the `wri
 Work in progress!
 
 ---
-
-<div id="search" />
 
 ## Search
