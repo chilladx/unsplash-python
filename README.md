@@ -47,9 +47,6 @@ unsplash = Unsplash({
 - [Search](https://github.com/michael-hacker/unsplash-python#searchallkeyword-page)
 - [Stats](https://github.com/michael-hacker/unsplash-python#stats)
 
-
-<div id="authorization" />
-
 ## Authorization
 
 ### auth().get_authentication_url(scopes)
