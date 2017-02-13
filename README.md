@@ -44,7 +44,7 @@ unsplash = Unsplash({
 - [Users](#users)
 - [Photos](#photos)
 - [Collections](#collections)
-- [Search](#searchallkeyword-page)
+- [Search](#search)
 - [Stats](#stats)
 
 ## Authorization
