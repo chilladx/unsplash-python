@@ -195,8 +195,8 @@ __Example__
 
 ```python
 unsplash.users().likes(
-    username 'michael_hacker',
-    page =2,
+    username='michael_hacker',
+    page=2,
     per_page=15,
     order_by='popular'
 )
