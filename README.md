@@ -39,7 +39,7 @@ unsplash = Unsplash({
 
 ## Instance Methods
 
-- [Authorization](https://github.com/michael-hacker/unsplash-python#authorization)
+- [Authorization](#authorization)
 - [Current User](https://github.com/michael-hacker/unsplash-python#current-user)
 - [Users](https://github.com/michael-hacker/unsplash-python#users)
 - [Photos](https://github.com/michael-hacker/unsplash-python#photos)
